@@ -1,5 +1,7 @@
 # Tämä on otsikko
-Täss jotain tekstiä. **Himan paksua tekstiä**. *Tämä teksti on vinossa*.
+Tässä jotain tekstiä. **Himan paksua tekstiä**. *Tämä teksti on vinossa*.
 
-## Tämä on aliotsikko
-Lisää tesktiä.
+## ENsimmäsien viikon linkit:
+
+[gitlog](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/laskarit/viikko1/gitlog.txt)
+[komentorivi](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/laskarit/viikko1/komentorivi.txt)
