@@ -4,7 +4,7 @@
 
 **Viikko 1**
 
-*Linkit*:
+*Linkit tiedostoihin*:
 
 [gitlog](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/laskarit/viikko1/gitlog.txt)
 
