@@ -1,0 +1,30 @@
+commit b4151ad5c23c935ec4e28a50a164cb20b0999318 (HEAD -> master)
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:24:39 2020 +0200
+
+    poistetu eka, muutettu toka
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 63891ac93f31a15bdd57e9c7a54b86e91ca85e81
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:18:58 2020 +0200
+
+    files
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4b46d0976ca384656180cf14bb644b410f8d801a
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:12:38 2020 +0200
+
+    muutoksia ekassa ja kolmannessa
+
+ eka.txt    | 203 +------------------------------------------------------------
+ kolmas.txt |   4 +-
+:

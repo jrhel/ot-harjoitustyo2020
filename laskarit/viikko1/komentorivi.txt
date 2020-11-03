@@ -1,0 +1,31 @@
+.
+├── Desktop -> /home/ad/home/j/jriska/Desktop
+├── Documents -> /home/ad/home/j/jriska/Documents
+├── Downloads -> /home/ad/home/j/jriska/Downloads
+├── kurssit
+│   └── ot2020
+│       └── viikko1
+│           └── Unicafe
+│               ├── pom.xml
+│               └── src
+│                   ├── main
+│                   │   └── java
+│                   │       └── com
+│                   │           └── mycompany
+│                   │               └── unicafe
+│                   │                   ├── Kassapaate.java
+│                   │                   ├── Maksukortti.java
+│                   │                   └── Paaohjelma.java
+│                   └── test
+│                       └── java
+│                           └── com
+│                               └── mycompany
+│                                   └── unicafe
+│                                       └── MaksukorttiTest.java
+├── Music
+├── Pictures
+├── Public
+├── Templates
+└── Videos
+
+23 directories, 5 files
