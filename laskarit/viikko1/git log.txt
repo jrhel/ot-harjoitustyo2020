@@ -1,0 +1,133 @@
+commit b4151ad5c23c935ec4e28a50a164cb20b0999318 (HEAD -> master)
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:24:39 2020 +0200
+
+    poistetu eka, muutettu toka
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 63891ac93f31a15bdd57e9c7a54b86e91ca85e81
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:18:58 2020 +0200
+
+    files
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4b46d0976ca384656180cf14bb644b410f8d801a
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:12:38 2020 +0200
+
+    muutoksia ekassa ja kolmannessa
+
+ eka.txt    | 203 +------------------------------------------------------------
+ kolmas.txt |   4 +-
+ 2 files changed, 5 insertions(+), 202 deletions(-)
+
+commit ef10f97045e4519bef9b0eacbe96f196a4d36fac
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:09:51 2020 +0200
+
+    tiedosto on nyt eka
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 79ae8c0e3043389dc20ef15c0b66be5bc0d4f477
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:08:43 2020 +0200
+
+    git rm
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ac65e254f57e552eca6eb4522bd7ea8105807b62
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:07:17 2020 +0200
+
+    Revert "toinen poistettu"
+
+    This reverts commit 0f2dceb829d853e23475e9197489a62c24de450c.
+
+ toinen.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 0f2dceb829d853e23475e9197489a62c24de450c
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 14:00:23 2020 +0200
+
+    toinen poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 340c4ff6bbe3a37d4f4a472d047ace9e7e11f21f
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 13:51:33 2020 +0200
+
+    wealth of nations
+
+ tiedosto.txt | 194 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 191 insertions(+), 3 deletions(-)
+
+commit b0351b81c9ae32c71dcb8a0469a3cf3a36df8df1
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 13:46:13 2020 +0200
+
+    theory of moral sentiments
+
+ tiedosto.txt | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit 5c39c787f369a4c25d26e0d62d847393f57afc6f
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 13:33:00 2020 +0200
+
+    stuff
+
+ stuff/jokin_tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 8d5c86467b33f4901061ff4fc2ca6312120841f3
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 13:30:54 2020 +0200
+
+    toinen ja kolmas muokattu
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit e38deaa915a310ba5a6ecc612cace596ff934998
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 13:29:05 2020 +0200
+
+    kolmas tiedosto luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 94c9879c74d42a9879ee0e2c9840d4a906f5b5da
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Tue Nov 3 13:25:51 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 2 +-
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit e5d59a2115586898d8371c781575bb18ad35abe9
+Author: jrhel <johannes.riska@helsinki.fi>
+Date:   Sun Nov 1 16:30:20 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
