@@ -2,7 +2,7 @@
 
 ## Harjoitustyö
 
- --
+remote test
 
 ## Tehtävät
 
