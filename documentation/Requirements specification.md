@@ -55,4 +55,8 @@ The user will be able to:
 ## Future development
 
 -   Ability to browse and see an overview of runs on a time axis,
+-   Ability to see graph of average cadence per run matching selected categories (easily implemented but assumed to be of lesser interest to user, thus beeing put low on the "to-do-list"),
+-   Ability to add and see altitude data for a run (tot. ascent, totl descent, and altitude graph of run),
+-   Ability to add and see more complete cadence data for a run (graph of cadence during run, e.g. 1min avg.),
+-   Inclusion of heart rate data,
 -   Make app more general and dynamic no longer focusing on showing data specifically to runs, instead allowing users to use the app to stora data about any kind of activity, track it, and get overviews of relevant data to their activities. Making the app more general could be facilitated by the app logic already depending on user-created categories, (i.e. Activities could be user-created categories and activity-specific categories  (e.g. "Distance") would become subcategories, with their own subcategories etc., to the activity). However, different data can be relevant to different activities, and thus a useful a pivot to activity in general might require tailor made user interfaces for each activity  thus significantly complicating the user interface, the application logic, and the application design in general. Because time and location data often is interesting for runners, activities where such data is also valued coudl be quite easily incorporated, e.g. cycling and outdoor swimming. Then, the application would not support genearl activities though but again be activity specific, evanthough the range of supported activities would have increased.
