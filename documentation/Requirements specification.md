@@ -22,32 +22,26 @@ The user will be able to:
 -	Create categories of runs (e.g. “Pavement”, “Trail”, “Track”, “5K”, “10K”, “tempo”. “easy” etc.),
 -	Create subcategories to higher categories, e.g. “Surface” = {“Pavement”, “Trail”, “Track”}, “Distance” = {“5K”, “10K”},
 -	Save runs by manually inputting data about them, including:
-    -	Duration
-  o	Moment in time, (e.g. date)
-  o	Distance
-  o	.gpx file
-  o	Avg. cadence
-  o	Avg. speed
-  o	Applicable user-created categories
--	Edit data in saved runs
-- Delete runs
+    - Duration,
+    - Moment in time (e.g. date),
+    - Distance,
+    - .gpx file,
+    - Avg. cadence,
+    - Avg. speed,
+    - Applicable user-created categories.
+-	Edit data in saved runs.
+-   Delete runs.
 -	Browse runs by:
-  time, location, and user-created categories
-
-The application will be able to:
--	Show a user an overview of any run saved in the application and the data added to that run,
--	Show an overview of all runs that match selected user-created categories including: 
--	
--	by
-o	time, 
-o	location.
-In terms of time, this will include:
--	duration of runs,
--	moment of runs.
-I terms of location, this will include:
--	distance of runs,
--	route of runs (provided th user has  added a .gpx file for).
-
+    - User-created categories.
+    - (Time ?).
+    - (Location ?).
+-   See an overview of any run saved in the application and the data added to that run,
+-	See an overview of all runs that match selected user-created categories including: 
+    - graph of duration/avg. speed per moments in time
+    - personal best (i.e. fastest run/shortest duration),
+    - map of included routes (provided user has added .gpx files),
+    - (graph of distance per moment in time, e.g. 7-day avg. ?)
+    - (avg. cadence per moment in time ?)
 
 
 ## Limits of the application
