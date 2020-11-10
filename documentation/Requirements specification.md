@@ -40,8 +40,8 @@ The user will be able to:
     - graph of duration/avg. speed per moments in time
     - personal best (i.e. fastest run/shortest duration),
     - map of included routes (provided user has added .gpx files),
-    - (graph of distance per moment in time, e.g. 7-day avg. ?)
-    - (avg. cadence per moment in time ?)
+    - (graph of distance per moment in time, e.g. 7-day avg. ?).
+    - (avg. cadence per moment in time ?).
 
 
 ## Limits of the application
