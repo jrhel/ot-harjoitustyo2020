@@ -42,8 +42,6 @@ The user will be able to:
     - Graph of duration/avg. speed per moments in time,
     - Personal best (i.e. fastest run/shortest duration),
     - Map of included routes (provided user has added .gpx files),
-    - (graph of distance per moment in time, e.g. 7-day avg. ?).
-    - (avg. cadence per moment in time ?).
 
 
 ## Technological requirements on the application
@@ -55,7 +53,8 @@ The user will be able to:
 ## Future development
 
 -   Ability to browse and see an overview of runs on a time axis,
--   Ability to see graph of average cadence per run matching selected categories (easily implemented but assumed to be of lesser interest to user, thus beeing put low on the "to-do-list"),
+-   Ability to see graph of distance per moment in time in "overview of all runs that match selected user-created categories",
+-   Ability to see graph of avg. cadence per run matching selected categories (easily implemented but assumed to be of lesser interest to user, thus beeing put low on the "to-do-list"),
 -   Ability to add and see altitude data for a run (tot. ascent, totl descent, and altitude graph of run),
 -   Ability to add and see more complete cadence data for a run (graph of cadence during run, e.g. 1min avg.),
 -   Inclusion of heart rate data,
