@@ -16,4 +16,4 @@
 
 [vaatimusmäärittely](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Requirements%20specification.md)
 
-[työaikakirjanpito](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Record%20of%20working%20hours)
+[työaikakirjanpito](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Record%20of%20working%20hours.md)
