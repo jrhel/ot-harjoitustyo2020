@@ -22,15 +22,17 @@ The user will be able to:
 -	Create categories of runs (e.g. “Pavement”, “Trail”, “Track”, “5K”, “10K”, “tempo”. “easy” etc.),
 -	Create subcategories to higher categories, e.g. “Surface” = {“Pavement”, “Trail”, “Track”}, “Distance” = {“5K”, “10K”},
 -	Save runs by manually inputting data about them, including:
-o	Duration
-o	Moment in time, (e.g. date)
-o	Distance
-o	.gpx file
-o	Avg. cadence
-o	Avg. speed
-o	Applicable user-created categories
+  o	Duration
+  o	Moment in time, (e.g. date)
+  o	Distance
+  o	.gpx file
+  o	Avg. cadence
+  o	Avg. speed
+  o	Applicable user-created categories
 -	Edit data in saved runs
--	Browse runs by time, location, and user-created categories
+- Delete runs
+-	Browse runs by:
+  time, location, and user-created categories
 
 The application will be able to:
 -	Show a user an overview of any run saved in the application and the data added to that run,
