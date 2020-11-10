@@ -2,7 +2,7 @@
 
 ## Purpose of the application
 
-The purpose of the application is to allow the user to get an easily understandable and navigable overview of their runs. Today, there are a lot of different mobile apps and wearable 
+The purpose of the application is to allow the user to get an easily understandable and navigable overview of their (outdoor, i.e. not treadmill) runs. Today, there are a lot of different mobile apps and wearable 
 technology that gathers data for the user about their activities. However, these often require an account, and perhaps even a subscription, and don't necessarily allow for local storage
 of the data they gather - either because of the limited storage often found in smaller devices, or because of the design of the service. Also, simply because of the form factor of these 
 platforms, they don’t always offer an easily understandable and navigable overview of the data they gather. A desktop application on the other hand, offers a larger platform 
@@ -29,21 +29,30 @@ The user will be able to:
     - Avg. cadence,
     - Avg. speed,
     - Applicable user-created categories.
--	Edit data in saved runs.
--   Delete runs.
--	Browse runs by:
-    - User-created categories.
-    - (Time ?).
-    - (Location ?).
+-	Edit data in saved runs,
+-   Delete runs,
 -   See an overview of any run saved in the application and the data added to that run,
--	See an overview of all runs that match selected user-created categories including: 
-    - graph of duration/avg. speed per moments in time
-    - personal best (i.e. fastest run/shortest duration),
-    - map of included routes (provided user has added .gpx files),
+-	Browse runs by user-created categories and open an overview of any run matching selected categories, 
+-   See an overview of all runs that match selected user-created categories including: 
+    - Number of runs matching selected categories,
+    - Total distance of runs matching selected categories (for runs for which user has added .gpx files),
+    - Avg. distance of runs matching selected categories (for runs for which user has added .gpx files),
+    - Total duration of runs matching selected categories,
+    - Avg. duration of runs matching selected categories,
+    - Graph of duration/avg. speed per moments in time,
+    - Personal best (i.e. fastest run/shortest duration),
+    - Map of included routes (provided user has added .gpx files),
     - (graph of distance per moment in time, e.g. 7-day avg. ?).
     - (avg. cadence per moment in time ?).
 
 
-## Limits of the application
+## Technological requirements on the application
+
+-   The application must work on the Linux- & OSX desktop,
+-   The application will use a database for persistent storage,
+-   All app data will be saved locally on device.
 
 ## Future development
+
+-   Ability to browse and see an overview of runs on a time axis,
+-   Make app more general and dynamic no longer focusing on showing data specifically to runs, instead allowing users to use the app to stora data about any kind of activity, track it, and get overviews of relevant data to their activities. Making the app more general could be facilitated by the app logic already depending on user-created categories, (i.e. Activities could be user-created categories and activity-specific categories  (e.g. "Distance") would become subcategories, with their own subcategories etc., to the activity). However, different data can be relevant to different activities, and thus a useful a pivot to activity in general might require tailor made user interfaces for each activity  thus significantly complicating the user interface, the application logic, and the application design in general.
