@@ -38,11 +38,6 @@ The user will be able to:
     - Graph of duration/avg. speed per moments in time,
     - Personal best (i.e. fastest run/shortest duration),
     - Map of included routes (provided user has added .gpx files).
-    
-The application will implement:
--   A database,
--   A GUI.
-
 
 ## Technological requirements on the application
 
