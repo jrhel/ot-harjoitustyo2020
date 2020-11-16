@@ -11,7 +11,7 @@ This is a course project, for the course in Software Engineering (fi: "Ohjelmist
 
 ## Command line Commands
 
-**Testing**
+###Testing
 
 Tests are run with the command:
 
