@@ -14,7 +14,7 @@
 **Testing**
 
 Tests can be run with the command:
-
+| :----:|
 | mvn test |
 
 
