@@ -13,8 +13,19 @@
 
 **Testing**
 
-Tests can be run with the command:
-| mvn test |
+Tests are run with the command:
+
+```
+mvn test
+```
+
+A report of the test coverage is generated with the command:
+
+```
+mvn jacoco:report
+```
+
+The report can be accessed and browsed by opening the file _target/site/jacoco/index.html_ in your browser
 
 
 
