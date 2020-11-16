@@ -1,6 +1,6 @@
 # RunView
 
-## Harjoitustyö
+This is a course project, for the course in Software Engineering (fi: Ohjelmistotekniikka, TKT20002) at the University of Helsinki, which should result in an application that allows the user to store relevant data regarding their running, browse and get an overview of their running history.
 
 
 ## Documentation
@@ -26,6 +26,8 @@ mvn jacoco:report
 ```
 
 The report can be accessed and browsed by opening the file _target/site/jacoco/index.html_ in your browser
+
+
 
 
 
