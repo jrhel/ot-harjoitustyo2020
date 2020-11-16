@@ -1,19 +1,22 @@
-# Ohjelmistotekniikka
+# RunView
 
 ## Harjoitustyö
 
 
-## Tehtävät
+## Documentation
 
-**Viikko 1**
+[Requirements specification](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Requirements%20specification.md)
 
-[gitlog](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/laskarit/viikko1/gitlog.txt)
+[Record of working hours](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Record%20of%20working%20hours.md)
 
-[komentorivi](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/laskarit/viikko1/komentorivi.txt)
+## Command line Commands
+
+**Testing**
+
+Tests can be run with the command:
+
+| mvn test |
 
 
-**Viikko 2**
 
-[vaatimusmäärittely](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Requirements%20specification.md)
 
-[työaikakirjanpito](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Record%20of%20working%20hours.md)
