@@ -7,5 +7,5 @@
 | 11.11 | 3         | Planning of the required database and structure of the code. 
 | 12.11 | 4         | Createing a Maven-project. Creating the basic object-structure of the code. Coding a basic text-UI and the DAO:s, and methods for storing data in the database, initiating the tables in the database, and resetting those tables. Addings upport for H2-database engine.
 | 14.11 | 4         | Refining the previously written code, reserching ways for the code to handle time (i.e. durations and moments). Adding support for jacoco:report and Joda-Time in the project. Trying to get the dao.create(); methods to return the primary key for the executed update (i.e. added database ebtry).
-| 15.11 | 4         | Testing implemented database methods, and refining the previously written code. First tests written for the DAO's and the application logic. Updatinge the github repository README-file.
+| 15.11 | 4         | Testing implemented database methods, and refining the previously written code. First tests written for the DAO's and the application logic. Updatinge the README-file i nthe github repository.
 | Tot.  | 20        |
