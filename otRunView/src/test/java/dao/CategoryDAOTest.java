@@ -42,6 +42,7 @@ public class CategoryDAOTest {
         Category newParent = catDao.read(childPK);
         Category grandChild = new Category("Fenix", newParent);
         catDao.create(grandChild);
+        
         assertEquals("id: 2, category: Fenix, parent: child", catDao.read(2).toString());
     }
 }
