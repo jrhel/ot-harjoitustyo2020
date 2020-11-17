@@ -1,0 +1,20 @@
+2020-11-14 14:13:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (CATEGORY: PARENT INTEGER)"; SQL statement:
+INSERT INTO Category (name, parent) VALUES (?, ?) -- (?1, ?2) [22018-197]
+2020-11-14 14:14:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (CATEGORY: PARENT INTEGER)"; SQL statement:
+INSERT INTO Category (name, parent) VALUES (?, ?) -- (?1, ?2) [22018-197]
+2020-11-14 14:14:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'x' (CATEGORY: PARENT INTEGER)"; SQL statement:
+INSERT INTO Category (name, parent) VALUES (?, ?) -- (?1, ?2) [22018-197]
+2020-11-14 15:21:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "INGREDIENT" not found; SQL statement:
+SELECT * FROM Ingredient WHERE name = ? [42102-197]
+2020-11-14 15:21:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "INGREDIENT" not found; SQL statement:
+SELECT * FROM Ingredient WHERE name = ? [42102-197]
+2020-11-14 15:23:40 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "INGREDIENT" not found; SQL statement:
+SELECT * FROM Ingredient WHERE name = ? [42102-197]
+2020-11-16 02:30:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: The object is already closed [90007-197]
