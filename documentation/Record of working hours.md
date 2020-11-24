@@ -12,5 +12,5 @@
 | 19.11 | 2         | Reviewed the database's ability to handle subcategories, and allow for attributes to be added to categories.
 | 20.11 | 3         | Editing the previously written code and database to bettter handle subcategories, and added the ability for categories to have attributes.
 | 22.11 | 3         | Coding ability for user to add runs, and testing this feature.
-| 24.11 | 2         | Writing a couple of new tests for the DAO's and domain logic. Removing UI-package from the jacoco test coverage report. Adding support for Checkstyle. Updating the README-file in the github repository. Updating .gitignore-file.
-| Tot.  | 32        |
+| 24.11 | 3         | Writing a couple of new tests for the DAO's and domain logic. Removing UI-package from the jacoco test coverage report. Adding support for Checkstyle. Updating .gitignore-file. Adding architecture description to project. Updating the README-file in the github repository.
+| Tot.  | 33        |
