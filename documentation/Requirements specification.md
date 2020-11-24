@@ -17,6 +17,7 @@ tba
 The user will be able to:
 -	Create categories for their runs (e.g. “Pavement”, “Trail”, “Track”, “5K”, “10K”, “tempo”. “easy” etc.),    **[done]**
 -	Create subcategories to higher categories, e.g. “Surface” = {“Pavement”, “Trail”, “Track”}, “Distance” = {“5K”, “10K”},     **[done]**
+-   Add attributes to their created categories, so as to enable the user to add any additional information regarding their categories that they would feel inclined to have,    **[done]**
 -	Save runs by manually inputting data about them, including:
     - Duration,
     - Moment in time (e.g. date),
