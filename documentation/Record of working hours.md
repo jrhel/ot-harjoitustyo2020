@@ -9,4 +9,6 @@
 | 14.11 | 4         | Refining the previously written code, reserching ways for the code to handle time (i.e. durations and moments). Adding support for jacoco:report and Joda-Time in the project. Trying to get the dao.create(); methods to return the primary key for the executed update (i.e. added database ebtry).
 | 15.11 | 4         | Testing implemented database methods, and refining the previously written code. First tests written for the DAO's and the application logic. Updating the README-file in the github repository.
 | 17.11 | 2         | Refining and testeing the previously written code, writing a couple more tests, and making sure user can add categories and subcategories.
-| Tot.  | 22        |
+| 19.11 | 2         | Reviewed the database's ability to handle subcategories, and allow for attributes to be added to categories.
+| 20.11 | 3         | Edited the previously written code and database to bettter handle subcategories, and added the ability for categories to have attributes.
+| Tot.  | 27        |
