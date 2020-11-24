@@ -10,5 +10,6 @@
 | 15.11 | 4         | Testing implemented database methods, and refining the previously written code. First tests written for the DAO's and the application logic. Updating the README-file in the github repository.
 | 17.11 | 2         | Refining and testeing the previously written code, writing a couple more tests, and making sure user can add categories and subcategories.
 | 19.11 | 2         | Reviewed the database's ability to handle subcategories, and allow for attributes to be added to categories.
-| 20.11 | 3         | Edited the previously written code and database to bettter handle subcategories, and added the ability for categories to have attributes.
-| Tot.  | 27        |
+| 20.11 | 3         | Editing the previously written code and database to bettter handle subcategories, and added the ability for categories to have attributes.
+| 22.11 | 3         | Coding ability for user to add runs, and testing this feature.
+| Tot.  | 30        |
