@@ -37,7 +37,7 @@ Checks, as defined by the file [checkstyle.xml](https://github.com/jrhel/ot-harj
  mvn jxr:jxr checkstyle:checkstyle
 ```
 
-An overview of al lerrors can be accessed by opening the file _target/site/checkstyle.html_ in your browser
+An overview of all errors can be accessed by opening the file _target/site/checkstyle.html_ in your browser
 
 
 
