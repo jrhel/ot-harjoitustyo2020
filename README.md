@@ -27,6 +27,16 @@ mvn jacoco:report
 
 The report can be accessed and browsed by opening the file _target/site/jacoco/index.html_ in your browser
 
+### Checkstyle
+
+
+
+```
+ mvn jxr:jxr checkstyle:checkstyle
+```
+
+
+
 
 
 
