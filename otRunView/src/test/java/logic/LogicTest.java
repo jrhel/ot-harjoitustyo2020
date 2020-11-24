@@ -5,6 +5,8 @@
  */
 package logic;
 
+import java.util.ArrayList;
+import java.util.List;
 import main.domain.Category;
 import main.domain.Logic;
 import static org.junit.Assert.assertEquals;
@@ -17,13 +19,17 @@ import org.junit.Test;
 public class LogicTest {
     
     @Test
-    public void parentCategoryCanBeSaved() {
-        
+    public void parentCategoryCanBeSaved() {        
         Logic logic = new Logic();
         logic.resetDatabase();
         
-        logic.saveCategory("parent", "");
-        assertEquals("id: 1, category: parent, parent: ", logic.readCategory("parent"));
+        List<String> attributes = new ArrayList<>();
+        attributes.add("5k");
+        attributes.add("trail");
+        logic.saveCategory("category", attributes, "");
+        
+        assertEquals("id: 1, name: category, parent: , attributes:\n5k\ntrail\n", logic.readCategory("category"));
+        
     }
     
     @Test
@@ -32,9 +38,12 @@ public class LogicTest {
         Logic logic = new Logic();
         logic.resetDatabase();
         
-        logic.saveCategory("parent", "");
-        logic.saveCategory("child", "parent");
-        assertEquals("id: 2, category: child, parent: parent", logic.readCategory("child"));
+        List<String> parentAttributes = new ArrayList<>();
+        logic.saveCategory("parent", parentAttributes, "");
+        List<String> attributes = new ArrayList<>();
+        attributes.add("sunny");
+        logic.saveCategory("child", attributes, "parent");
+        assertEquals("id: 2, name: child, parent: parent, attributes:\nsunny\n", logic.readCategory("child"));
     }
-    
+
 }

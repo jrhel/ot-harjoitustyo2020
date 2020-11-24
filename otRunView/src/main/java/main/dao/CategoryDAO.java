@@ -23,9 +23,8 @@ public class CategoryDAO {
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
             
             PreparedStatement statement = databaseConnection.prepareStatement("INSERT INTO Category (name, parent) VALUES (?, ?)");
-            statement.setString(1, newCategory.getName());  
-            Integer parentId = newCategory.getParent().getId();
-            statement.setInt(2, parentId);
+            statement.setString(1, newCategory.getName());
+            statement.setString(2, newCategory.getParentName());
             statement.executeUpdate();
             
             statement.close();            
@@ -43,7 +42,7 @@ public class CategoryDAO {
     
     public Category read(int primaryKey) {
         
-        Category category = new Category("", null);
+        Category category = new Category(-1, "", null, "");
         
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
 
@@ -53,8 +52,8 @@ public class CategoryDAO {
 
             while (resultSet.next()) {
                 category.setId(resultSet.getInt("id"));
-                category.setName(resultSet.getString("name"));
-                category.setParent(this.read(resultSet.getInt("parent")));                
+                category.setName(resultSet.getString("name"));   
+                category.setParentName(resultSet.getString("parent"));
             }
 
         } catch (Exception e) {
@@ -72,7 +71,7 @@ public class CategoryDAO {
         
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
             
-            String createTable = "CREATE TABLE IF NOT EXISTS Category (id INTEGER AUTO_INCREMENT PRIMARY KEY, name TEXT, parent INTEGER);";  
+            String createTable = "CREATE TABLE IF NOT EXISTS Category (id INTEGER AUTO_INCREMENT PRIMARY KEY, name TEXT, parent TEXT);";  
             databaseConnection.prepareStatement(createTable).executeUpdate();
             
             databaseConnection.close();            

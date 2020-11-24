@@ -5,8 +5,8 @@
  */
 package main.domain;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,35 +16,23 @@ public class Category {
     
     private Integer id;
     private String name;
-    private Category parent;
-    // private Map<String, String> attributes;
-    
-    public Category(String name, Category parent) {
-        this.id = -1;
-        this.name = name;
-        this.parent = parent;
-    }
+    private List<CategoryAttribute> attributes;
+    private String parentName;
 
-    public Category(int id, String name, Category parent) {
-        this.id = id;
-        this.name = name;
-        this.parent = parent;
-    }    
-    /*   
-    public Category(String name, HashMap<String, String> attributes) {
-        this.name = name;
+    public Category(String name) {
         this.id = -1;
-        this.parent = null;
-        this.attributes = attributes;
-    }
-    
-    public Category(int id, String name, Category parent, HashMap<String, String> attributes) {
+        this.name = name;
+        this.attributes = new ArrayList<>();
+        this.parentName = "";
+    }   
+
+    public Category(Integer id, String name, List<CategoryAttribute> attributes, String parentName) {
         this.id = id;
         this.name = name;
-        this.parent = parent;
         this.attributes = attributes;
-    }
-    */
+        this.parentName = parentName;
+    }    
+        
     public void setId(int id) {
         this.id = id;
     }
@@ -52,15 +40,14 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
-
-    public void setParent(Category parent) {
-        this.parent = parent;
-    }
-    /*
-    public void setAttributes(Map<String, String> attributes) {
+    
+    public void setAttributes(List<CategoryAttribute> attributes) {
         this.attributes = attributes;
     }
-    */
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }    
 
     public Integer getId() {
         return id;
@@ -70,21 +57,21 @@ public class Category {
         return name;
     }
 
-    public Category getParent() {
-        return parent;
+    public List<CategoryAttribute> getAttributes() {
+        return attributes;
     }
+
+    public String getParentName() {
+        return parentName;
+    }  
 
     @Override
     public String toString() {
-        String a_id = "id: " + this.id;
-        String b_cat = ", category: " + this.name;
-        String c_parent = ", parent: " + this.parent.getName();
-        return a_id + b_cat + c_parent;
-        // return "id: " + this.id + ", category: " + this.name + ", parent: " + this.parent.getName();
+        String allInfo = "id: " + id + ", name: " + name + ", parent: " + parentName + ", attributes:\n";
+        for (CategoryAttribute attribute: attributes) {
+            allInfo = allInfo + attribute.toString() + "\n";
+        }
+        return allInfo;
     }
-    
-    
-    
-    
     
 }
