@@ -21,6 +21,7 @@ public class TempTextUI {
     public static void main(String[] args) {
         
         Logic logic = new Logic();
+        logic.ensureDataBaseExists();
                 
         Scanner kbInput = new Scanner(System.in);                 
         
