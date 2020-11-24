@@ -29,13 +29,13 @@ The report can be accessed and browsed by opening the file _target/site/jacoco/i
 
 ### Checkstyle
 
-
+Checks, as defined by the file [checkstyle.xml](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/otRunView/checkstyle.xml), are run with the command:
 
 ```
  mvn jxr:jxr checkstyle:checkstyle
 ```
 
-
+An overview of al lerrors can be accessed by opening the file _target/site/checkstyle.html_ in your browser
 
 
 
