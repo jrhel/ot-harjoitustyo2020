@@ -52,7 +52,7 @@ public class TempTextUI {
         System.out.println("To create a new category for your runs,  (e.g. \"Pavement\", \"Trail\", \"Track\", \"5K\", \"10K\", \"tempo\". \"easy\" etc.), type \"add cat\",");
         System.out.println("To read a category, type \"read cat\"");;
         System.out.println("To add a new run, type \"add run\",");
-        System.out.println("To read a run, type \"read run\"");
+        System.out.println("To view all your runs, type \"list runs\"");
         System.out.println("To delete all your data, type \"reset db\".");
         String userCommand = kbInput.nextLine();
         return userCommand;

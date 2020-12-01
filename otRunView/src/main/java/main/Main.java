@@ -5,6 +5,7 @@
  */
 package main;
 
+import java.util.Scanner;
 import main.ui.GUI;
 import main.ui.TempTextUI;
 
@@ -17,7 +18,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
         
         GUI.main(args);
-        // TempTextUI.main(args);        
         
     }
     
