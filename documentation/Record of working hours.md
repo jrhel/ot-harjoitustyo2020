@@ -17,5 +17,5 @@
 | 28.11 | 3         | Expanding database and application logic to support relationships bewteen rusn and user generated categories
 | 29.11 | 3         | Beginning coding GUI and coding ability to see all runs added in the application, adding ability for create() methods of DAO-objects to return created database entry's primary key, and refining previously written code.
 | 30.11 | 1         | Adding ability to delete runs.         
-| 1.12  | 2         | Adding support for jar, and creating executable jar file of project. Updating project documentation in project remote repository. Excluded GUI from checkstyle, and fixed checkstyle error elsewhere in the code.
-| Tot.  | 44        |
+| 1.12  | 3         | Adding support for jar, and creating executable jar file of project. Updating project documentation in project remote repository. Excluded GUI from checkstyle, and fixed checkstyle error elsewhere in the code. Adding a few Tests.
+| Tot.  | 45        |
