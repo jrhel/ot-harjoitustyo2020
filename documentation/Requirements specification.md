@@ -27,7 +27,7 @@ The user will be able to:
     - Avg. speed,
     - Applicable user-created categories.
 -	Edit data in saved runs,
--   Delete runs,
+-   Delete runs, **[done]**
 -   See an overview of any run saved in the application and the data added to that run,
 -	Browse runs by user-created categories and open an overview of any run matching selected categories, 
 -   See an overview of all runs that match selected user-created categories including: 
