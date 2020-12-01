@@ -129,12 +129,7 @@ public class Logic {
     public boolean deleteRun(Run run) {
         
         boolean result = false;
-        /*
-        List<Category> runCategories = run.getCategories();
-        for (Category category: runCategories) {
-            
-        }
-        */
+        
         runCatDao.delete(run.getID());
         runDao.delete(run.getID());
         

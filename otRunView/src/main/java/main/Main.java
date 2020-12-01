@@ -16,8 +16,8 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
         
-        // GUI.main(args);
-        TempTextUI.main(args);        
+        GUI.main(args);
+        // TempTextUI.main(args);        
         
     }
     

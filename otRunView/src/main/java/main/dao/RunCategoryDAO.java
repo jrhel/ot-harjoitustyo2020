@@ -19,32 +19,38 @@ import main.domain.CategoryAttribute;
  */
 public class RunCategoryDAO {
     
-    public void ensureTableExists() {
+    public boolean ensureTableExists() {
         
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
             
             String createTable = "CREATE TABLE IF NOT EXISTS RunCategory (id INTEGER AUTO_INCREMENT PRIMARY KEY, run_id INTEGER, category_id INTEGER, FOREIGN KEY (run_id) REFERENCES Run(id), FOREIGN KEY (category_id) REFERENCES Category(id));";  
             databaseConnection.prepareStatement(createTable).executeUpdate();
             
-            databaseConnection.close();            
+            databaseConnection.close();  
+            
+            return true;
             
         } catch (Exception e) {
             System.out.println("RunCategoryDAO ERROR: table exists, " + e);
+            return false;
         }
     }
     
-    public void resetTable() {
+    public boolean resetTable() {
         
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
             databaseConnection.prepareStatement("DROP TABLE RunCategory IF EXISTS;").executeUpdate();
                     
             databaseConnection.close();
             
+            ensureTableExists();
+            
+            return true;
+            
         } catch (Exception e) {
             System.out.println("RunCategoryDAO ERROR: Could not reset table");
-        }        
-        
-        ensureTableExists();
+            return false;
+        }         
     }
     
     public void create(int runID, int categoryID) {

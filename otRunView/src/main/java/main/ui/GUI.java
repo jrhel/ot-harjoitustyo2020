@@ -102,14 +102,8 @@ public class GUI extends Application {
         Stage newRunStage = new Stage();
         newRunStage.setTitle("Add a new run");
         
-        VBox runData = new VBox();
+        VBox runData = newDataForm();
         
-        FlowPane datePane = getDatePane();        
-        FlowPane distancePane = getDistancePane();
-        FlowPane timePane = getTimePane();
-        FlowPane cadencePane = getCadencePane();
-        
-        runData.getChildren().addAll(datePane, distancePane, timePane, cadencePane);
         Scene newRunScene = new Scene(runData);
         newRunStage.setScene(newRunScene);       
         newRunStage.show();
@@ -198,4 +192,35 @@ public class GUI extends Application {
         return cadencePane;
     }
     
+    public VBox newDataForm() {
+        VBox dataForm = new VBox();
+        
+        FlowPane datePane = getDatePane();        
+        FlowPane distancePane = getDistancePane();
+        FlowPane timePane = getTimePane();
+        FlowPane cadencePane = getCadencePane();
+        
+        dataForm.getChildren().addAll(datePane, distancePane, timePane, cadencePane);
+        
+        return dataForm;
+    }
+    
+    public void newCategory() {
+        Stage newCategoryStage = new Stage();
+        newCategoryStage.setTitle("Add a new category");
+        
+        FlowPane namePane = new FlowPane();
+        Label nameLabel = new Label("Name: ");
+        TextField nameInput = new TextField();
+        namePane.getChildren().addAll(nameLabel, nameInput);
+        
+        VBox categoryAttributes = new VBox();
+        VBox addedAttributes = new VBox();
+        TextField attributeInput = new TextField();
+        Button newAttribute = new Button("Add attribute: ");
+        newAttribute.setOnAction((event) -> {
+            
+        });
+        
+    }
 }
