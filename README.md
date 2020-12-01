@@ -29,6 +29,16 @@ mvn jacoco:report
 
 The report can be accessed and browsed by opening the file _target/site/jacoco/index.html_ in your browser
 
+### Generating executable jar
+
+Executable jar is generated with the command:
+
+```
+mvn package
+```
+
+The generated jar file, _otRunView-1.0-SNAPSHOT.jar_, will appear in the directory _target_.
+
 ### Checkstyle
 
 Checks, as defined by the file [checkstyle.xml](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/otRunView/checkstyle.xml), are run with the command:
