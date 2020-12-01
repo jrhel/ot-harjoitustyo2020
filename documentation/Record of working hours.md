@@ -13,4 +13,8 @@
 | 20.11 | 3         | Editing the previously written code and database to bettter handle subcategories, and added the ability for categories to have attributes.
 | 22.11 | 3         | Coding ability for user to add runs, and testing this feature.
 | 24.11 | 3         | Writing a couple of new tests for the DAO's and domain logic. Removing UI-package from the jacoco test coverage report. Adding support for Checkstyle. Updating .gitignore-file. Adding architecture description to project. Updating the README-file in the github repository.
-| Tot.  | 33        |
+| 25.11 | 2         | Making general design of the "start page", ability to add runs, ability to add categories, and the "view" of a selected run and the data related to it. 
+| 28.11 | 3         | Expanding database and application logic to support relationships bewteen rusn and user generated categories
+| 29.11 | 3         | Beginning coding GUI and coding ability to see all runs added in the application, adding ability for create() methods of DAO-objects to return created database entry's primary key, and refining previously written code.
+| 30.11 | 1         | Adding ability to delete runs.         
+| Tot.  | 42        |
