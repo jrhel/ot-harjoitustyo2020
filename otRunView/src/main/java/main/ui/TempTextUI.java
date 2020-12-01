@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import main.domain.Logic;
+import main.domain.Run;
 
 /**
  *
@@ -39,7 +40,10 @@ public class TempTextUI {
                 read(kbInput, logic);
             } else if (userCommand.equals("read run")) {
                 readRun(kbInput, logic);
+            } else if (userCommand.equals("list runs")) {
+                listRuns(logic);
             }
+            
         }
         
     }
@@ -76,7 +80,8 @@ public class TempTextUI {
             }
         }
         
-        logic.saveRun(distance, date, duration, avgCadence, gpxPath, categories);
+        int id = logic.saveRun(distance, date, duration, avgCadence, gpxPath, categories);
+        System.out.println(id);
     }
     
     private static void readRun(Scanner kbInput, Logic logic) {
@@ -119,4 +124,11 @@ public class TempTextUI {
     private static void resetDatabase(Logic logic) {
         logic.resetDatabase();
     }
+    
+    private static void listRuns(Logic logic) {
+        for (Run run: logic.listRuns()) {
+            System.out.println(run);
+        }
+    }
+    
 }

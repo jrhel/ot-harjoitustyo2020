@@ -13,12 +13,12 @@ public class CategoryAttribute {
     
     private int id;
     private String attribute;
-    private int category_id;
+    private int categoryID;
 
-    public CategoryAttribute(int id, String attribute, int category_id) {
+    public CategoryAttribute(int id, String attribute, int categoryID) {
         this.id = id;
         this.attribute = attribute;
-        this.category_id = category_id;
+        this.categoryID = categoryID;
     }
 
     public void setId(int id) {
@@ -29,8 +29,8 @@ public class CategoryAttribute {
         this.attribute = attribute;
     }
 
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
     }
     
     public int getId() {
@@ -41,8 +41,8 @@ public class CategoryAttribute {
         return attribute;
     }
 
-    public int getCategory_id() {
-        return category_id;
+    public int getCategoryID() {
+        return categoryID;
     }
 
     @Override

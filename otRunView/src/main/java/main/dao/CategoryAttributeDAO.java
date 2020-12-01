@@ -54,7 +54,7 @@ public class CategoryAttributeDAO {
             
             PreparedStatement statement = databaseConnection.prepareStatement("INSERT INTO CategoryAttribute (attribute, category_id) VALUES (?, ?)");
             statement.setString(1, attribute.getAttribute());
-            statement.setInt(2, attribute.getCategory_id());
+            statement.setInt(2, attribute.getCategoryID());
             statement.executeUpdate();
             
             statement.close();            
@@ -78,7 +78,7 @@ public class CategoryAttributeDAO {
 
             while (resultSet.next()) {
                 attribute.setAttribute(resultSet.getString("attribute"));
-                attribute.setCategory_id(resultSet.getInt("category_id"));
+                attribute.setCategoryID(resultSet.getInt("category_id"));
             }
             
             resultSet.close();
@@ -105,7 +105,7 @@ public class CategoryAttributeDAO {
                 Integer category = resultSet.getInt("category_id");
                 
                 CategoryAttribute newAttribute = new CategoryAttribute(id, attribute, category);
-                if (newAttribute.getCategory_id() == categoryID)  {
+                if (newAttribute.getCategoryID() == categoryID)  {
                     attributes.add(newAttribute);
                 }
             } 

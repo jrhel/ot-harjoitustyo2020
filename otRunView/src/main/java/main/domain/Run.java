@@ -15,6 +15,7 @@ import org.joda.time.*;
  */
 public class Run {
     
+    private int id;
     private double distanceKm;
     private LocalDate date;
     private LocalTime duration;
@@ -23,7 +24,8 @@ public class Run {
     private String gpxFilePath;
     private List<Category> categories;
 
-    public Run(double distanceKm, LocalDate date, String duration, double avgSpeedKmH, int avgCadence, String gpxFilePath) {
+    public Run(int id, double distanceKm, LocalDate date, String duration, double avgSpeedKmH, int avgCadence, String gpxFilePath) {
+        this.id = id;
         this.distanceKm = distanceKm;
         this.date = date;
         this.duration = durationConversion(duration);
@@ -47,11 +49,23 @@ public class Run {
         this.avgSpeedKmH = calculateAvgSpeedKmH(distanceKm, duration);
     }
 
+    public int getID() {
+        return id;
+    }
+
     public double getDistanceKm() {
         return distanceKm;
     }
 
     public LocalDate getDate() {
+        return date;
+    }
+    
+    public String getDateAsText() {
+        int day = date.getDayOfMonth();
+        String month = date.monthOfYear().getAsShortText();
+        int year = date.getYear();
+        String date = month + " " + day + " " + year;
         return date;
     }
 
@@ -74,6 +88,38 @@ public class Run {
     public List<Category> getCategories() {
         return categories;
     }
+
+    public void setID(int id) {
+        this.id = id;
+    }
+    
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setDistanceKm(double distanceKm) {
+        this.distanceKm = distanceKm;
+    }
+
+    public void setDuration(LocalTime duration) {
+        this.duration = duration;
+    }
+
+    public void setAvgCadence(int avgCadence) {
+        this.avgCadence = avgCadence;
+    }
+
+    public void setAvgSpeedKmH(double avgSpeedKmH) {
+        this.avgSpeedKmH = avgSpeedKmH;
+    }
+
+    public void setGpxFilePath(String gpxFilePath) {
+        this.gpxFilePath = gpxFilePath;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
     
     public double calculateAvgSpeedKmH(double distanceKm, LocalTime time) {
         double hourSeconds = time.getSecondOfMinute() / 3600.00;
@@ -95,14 +141,15 @@ public class Run {
 
     @Override
     public String toString() {
-        String result = "";
-        result = result + "\nDate: " + date;
-        result = result + "\nDistance (Km): " + distanceKm;
-        result = result + "\nTime: " + duration;
-        result = result + "\nAverage speed (Km/h): " + avgSpeedKmH;
-        result = result + "\nAverage cadence: " + avgCadence;
-        result = result + "\n.gpx-file location: " + gpxFilePath;
-        return result;
+        String date = getDateAsText();
+        String distance = distanceKm + " Km, ";
+        String runCategories = "";
+        for (Category category: categories) {
+            runCategories = runCategories + ", " + category.getName();
+        }
+        
+        String runInfo = date + ", " + distance + duration + runCategories;
+        return runInfo;
     }
     
     

@@ -55,6 +55,8 @@ public class CategoryDAO {
                 category.setName(resultSet.getString("name"));   
                 category.setParentName(resultSet.getString("parent"));
             }
+            
+            closeResources(resultSet, statement, databaseConnection); 
 
         } catch (Exception e) {
             System.out.println("CatDAO ERROR: read");
@@ -109,15 +111,19 @@ public class CategoryDAO {
                 id = resultSet.getInt("id");
             }
             
-            statement.close();
-            resultSet.close();
-            databaseConnection.close();        
+            closeResources(resultSet, statement, databaseConnection);        
         
         } catch (Exception e) {
             System.out.println("Could not obtain CategoryPrimaryKey for " + name + ": " + e);
         }
         
         return id;
+    }
+    
+    private static void closeResources(ResultSet resultSet, PreparedStatement statement, Connection connection) throws Exception {
+        resultSet.close();
+        statement.close();
+        connection.close();
     }
     
 }

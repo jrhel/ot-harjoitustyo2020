@@ -5,6 +5,7 @@
  */
 package main;
 
+import main.ui.GUI;
 import main.ui.TempTextUI;
 
 /**
@@ -15,7 +16,8 @@ public class Main {
     
     public static void main(String[] args) throws Exception {
         
-        TempTextUI.main(args);
+        // GUI.main(args);
+        TempTextUI.main(args);        
         
     }
     
