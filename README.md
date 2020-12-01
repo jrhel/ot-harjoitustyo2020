@@ -11,6 +11,10 @@ This is a course project, for the course in Software Engineering (fi: "Ohjelmist
 
 [Architecture description](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/arcitecture.md)
 
+## Releases
+
+[Week 5 (prelim.)](https://github.com/jrhel/ot-harjoitustyo2020/releases/tag/week_5_(prelim.))
+
 ## Command line Commands
 
 ### Testing
