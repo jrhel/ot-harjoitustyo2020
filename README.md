@@ -39,7 +39,7 @@ The report can be accessed and browsed by opening the file _target/site/jacoco/i
 
 ### Generating executable jar
 
-AN executable jar can be generated with the command:
+An executable jar can be generated with the command:
 
 ```
 mvn package
