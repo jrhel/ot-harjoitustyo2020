@@ -50,7 +50,6 @@ public class Logic {
         int primaryKey = catDao.getPrimaryKey(name);
         Category category = catDao.read(primaryKey);
         category.setAttributes(catAttributeDao.list(primaryKey));
-        category.setParentName(catDao.read(catDao.getPrimaryKey(category.getParentName())).getName());
         return category.toString();
     }
     
@@ -74,21 +73,56 @@ public class Logic {
     
     public String readRun(int id) {
         Run run = runDao.read(id);
-        return run.toString();
+        
+        String date = run.getDateAsText();
+        String distance = run.getDistanceKm() + " Km, ";
+        
+        for (int categoryID: runCatDao.listCategoryIDs(run.getID())) {
+            Category runCategory = catDao.read(categoryID);
+            run.getCategories().add(runCategory);
+        }
+
+        String runCategories = "";
+        for (Category category: run.getCategories()) {
+            runCategories = runCategories + ", " + category.getName();
+        }
+        
+        String runInfo = date + ", " + distance + run.getDuration() + runCategories;
+        return runInfo;
     }
     
-    public void resetDatabase() {           
-        catDao.resetTable();;
-        catAttributeDao.resetTable();
-        runDao.resetTable();       
-        runCatDao.resetTable();
+    public boolean resetDatabase() {  
+        boolean result = true;
+        if (!(catDao.resetTable())) {
+            result = false;
+        }
+        if (!(catAttributeDao.resetTable())) {
+            result = false;
+        }
+        if (!(runDao.resetTable())) {
+            result = false;
+        }  
+        if (!(runCatDao.resetTable())) {
+            result = false;
+        }
+        return result;
     }
     
-    public void ensureDataBaseExists() {
-        catDao.ensureTableExists();
-        catAttributeDao.ensureTableExists();
-        runDao.ensureTableExists();
-        runCatDao.ensureTableExists();
+    public boolean ensureDataBaseExists() {
+        boolean result = true;
+        if (!(catDao.ensureTableExists())) {
+            result = false;
+        }
+        if (!(catAttributeDao.ensureTableExists())) {
+            result = false;
+        }
+        if (!(runDao.ensureTableExists())) {
+            result = false;
+        }
+        if (!(runCatDao.ensureTableExists())) {
+            result = false;
+        }
+        return result;
     }
     
     public LocalDate getLocalDateObject(String date) {        
@@ -134,5 +168,13 @@ public class Logic {
         runDao.delete(run.getID());
         
         return result;
+    }
+    
+    public List<Category> listCategories() {
+        List<Category> categories = catDao.list();
+        for (Category category: categories) {
+            category.setAttributes(catAttributeDao.list(category.getId()));
+        }
+        return categories;
     }
 }

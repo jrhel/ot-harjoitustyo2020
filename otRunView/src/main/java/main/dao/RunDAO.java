@@ -80,21 +80,24 @@ public class RunDAO {
         return run;
     }
 
-    public void ensureTableExists() {
+    public boolean ensureTableExists() {
         
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
             
             String createTable = "CREATE TABLE IF NOT EXISTS Run (id INTEGER AUTO_INCREMENT PRIMARY KEY, date DATE, distance FLOAT, duration TIME, speedKmH FLOAT, cadence INTEGER, gpx TEXT);";  
             databaseConnection.prepareStatement(createTable).executeUpdate();
             
-            databaseConnection.close();            
+            databaseConnection.close();   
+            
+            return true;
             
         } catch (Exception e) {
             System.out.println("RunDAO ERROR: table exists");
+            return false;
         }
     }
 
-    public void resetTable() {
+    public boolean resetTable() {
         
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
             databaseConnection.prepareStatement("DROP TABLE Run IF EXISTS;").executeUpdate();            
@@ -103,9 +106,14 @@ public class RunDAO {
             
         } catch (Exception e) {
             System.out.println("RunDAO ERROR: reset table");
+            return false;
         }        
         
-        ensureTableExists();
+        if (ensureTableExists()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public List<Run> list() {

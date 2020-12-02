@@ -25,6 +25,13 @@ public class Category {
         this.attributes = new ArrayList<>();
         this.parentName = "";
     }   
+    
+    public Category(Integer id, String name, String parentName) {
+        this.id = id;
+        this.name = name;
+        this.attributes = new ArrayList<>();
+        this.parentName = parentName;
+    }    
 
     public Category(Integer id, String name, List<CategoryAttribute> attributes, String parentName) {
         this.id = id;

@@ -150,7 +150,6 @@ public class Run {
         
         String runInfo = date + ", " + distance + duration + runCategories;
         return runInfo;
-    }
-    
+    }    
     
 }

@@ -20,21 +20,26 @@ import main.domain.CategoryAttribute;
  */
 public class CategoryAttributeDAO {
     
-    public void ensureTableExists() {
+    public boolean ensureTableExists() {
         
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
             
             String createTable = "CREATE TABLE IF NOT EXISTS CategoryAttribute (id INTEGER AUTO_INCREMENT PRIMARY KEY, attribute TEXT, category_id INTEGER, FOREIGN KEY (category_id) REFERENCES Category(id));";  
             databaseConnection.prepareStatement(createTable).executeUpdate();
             
-            databaseConnection.close();            
+            databaseConnection.close();   
+            
+            return true;
             
         } catch (Exception e) {
             System.out.println("AttributeDAO ERROR: table exists");
+            return false;
         }
     }
     
-    public void resetTable() {
+    public boolean resetTable() {
+        
+        boolean result = true;
         
         try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
             databaseConnection.prepareStatement("DROP TABLE CategoryAttribute IF EXISTS;").executeUpdate();
@@ -43,9 +48,14 @@ public class CategoryAttributeDAO {
             
         } catch (Exception e) {
             System.out.println("AttributeDAO ERROR: Could not reset table");
+            result = false;
         }        
         
-        ensureTableExists();
+        if (ensureTableExists()) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
     public void create(CategoryAttribute attribute) {

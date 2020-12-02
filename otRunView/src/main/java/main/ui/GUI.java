@@ -5,6 +5,8 @@
  */
 package main.ui;
 
+import java.util.ArrayList;
+import java.util.List;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.scene.Scene;
@@ -16,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.domain.Category;
+import main.domain.CategoryAttribute;
 import main.domain.Logic;
 import main.domain.Run;
 
@@ -36,7 +39,18 @@ public class GUI extends Application {
         logic = new Logic();
         logic.ensureDataBaseExists();
         
-        stage.setTitle("RunView");
+        stage.setTitle("RunView");        
+        
+        HBox display = new HBox();
+        display.getChildren().add(getRunDispaly(logic));
+        display.getChildren().add(getCategoryDisplay(logic));   
+        
+        Scene scene = new Scene(display);
+        stage.setScene(scene);       
+        stage.show();
+    }
+    
+    public VBox getRunDispaly(Logic logic) {
         
         Button addRun = new Button("Add a new run:");
         addRun.setOnAction((event) -> {
@@ -63,17 +77,7 @@ public class GUI extends Application {
         }
         
         runDisplay.getChildren().add(runs);
-        
-        HBox display = new HBox();
-        display.getChildren().add(runDisplay);
-        
-        Scene scene = new Scene(display);
-        stage.setScene(scene);       
-        stage.show();
-    }
-    
-    public void getRuns() {
-        
+        return runDisplay;
     }
     
     public String getRunDate(Run run) {
@@ -205,22 +209,129 @@ public class GUI extends Application {
         return dataForm;
     }
     
-    public void newCategory() {
-        Stage newCategoryStage = new Stage();
+    public VBox getCategoryDisplay(Logic logic) {
+        VBox categoryDisplay = new VBox();
+        Button addCategory = new Button("Add a new category");
+        addCategory.setOnAction((event) -> {
+            Stage newCategoryStage = new Stage();
+            List<String> attributes = new ArrayList<>();
+            String parent = "";
+            String name ="";
+            newCategory(logic, newCategoryStage, name, attributes, parent);
+        });
+        
+        Label categories = new Label("Categories: ");
+        VBox categoryButtons = listCategoryButtons(logic.listCategories());
+        
+        categoryDisplay.getChildren().addAll(addCategory, categories, categoryButtons);
+        return categoryDisplay;
+    }
+    
+    public VBox listCategoryButtons(List<Category> categories) {
+        VBox categoryButtons = new VBox();
+        for (Category category: categories) {
+            categoryButtons.getChildren().add(getCategoryButton(category));
+        }        
+        return categoryButtons;
+    }
+    
+    public Button getCategoryButton(Category category) {
+        String attributes = "";
+        for (CategoryAttribute catAttribute: category.getAttributes()) {
+            attributes = attributes + ", " + catAttribute.getAttribute();
+        }
+        String categoryInfo = category.getName() + attributes;
+        if (!category.getParentName().equals("")) {
+            categoryInfo = categoryInfo + ", (" + category.getParentName() + ")";
+        }
+        Button categoryButton = new Button(categoryInfo);
+        categoryButton.setOnAction((event) -> {
+            
+        });
+        return categoryButton;
+    }
+    
+    public void newCategory(Logic logic, Stage newCategoryStage, String name, List<String> attributes, String parent) {
+        
         newCategoryStage.setTitle("Add a new category");
+        
+        VBox categoryData = new VBox();
         
         FlowPane namePane = new FlowPane();
         Label nameLabel = new Label("Name: ");
         TextField nameInput = new TextField();
-        namePane.getChildren().addAll(nameLabel, nameInput);
+        nameInput.setText(name);
+        Button saveCategory = new Button("Save category");
+        saveCategory.setOnAction((event) -> {
+            logic.saveCategory(nameInput.getText(), attributes, parent);
+        });
+        namePane.getChildren().addAll(nameLabel, nameInput, saveCategory);
         
-        VBox categoryAttributes = new VBox();
-        VBox addedAttributes = new VBox();
+        categoryData.getChildren().add(namePane);
+        HBox lowerDisplay = new HBox();
+        lowerDisplay.getChildren().add(getAttributeComponent(logic, nameInput, attributes, newCategoryStage, parent));
+        lowerDisplay.getChildren().add(getCategoryComponent(logic, nameInput, attributes, newCategoryStage, parent));
+        
+        categoryData.getChildren().add(lowerDisplay);
+        
+        Scene newCategoryScene = new Scene(categoryData);
+        newCategoryStage.setScene(newCategoryScene);       
+        newCategoryStage.show();
+    }
+    
+    public Button getParentCategoryButton(Logic logic, Category category, TextField nameInput, List<String> newCategoryAttributes, Stage newCategoryStage, String parent) {
+        String attributes = "";
+        for (CategoryAttribute catAttribute: category.getAttributes()) {
+            attributes = attributes + ", " + catAttribute.getAttribute();
+        }
+        String parentInfo = category.getName() + attributes;
+        if (!category.getParentName().equals("")) {
+            parentInfo = parentInfo + ", (" + category.getParentName() + ")";
+        }
+        Button categoryButton = new Button(parentInfo);
+        categoryButton.setOnAction((event) -> {
+            newCategory(logic, newCategoryStage, nameInput.getText(), newCategoryAttributes, category.getName());
+        });
+        return categoryButton;
+    }
+    
+    public VBox listNewCategoryButtons(Logic logic, List<Category> categories, TextField nameInput, List<String> attributes, Stage newCategoryStage, String parent) {
+        VBox categoryButtons = new VBox();
+        for (Category category: categories) {
+            categoryButtons.getChildren().add(getParentCategoryButton(logic, category, nameInput, attributes, newCategoryStage, parent));
+        }        
+        return categoryButtons;
+    }
+    
+    public VBox getCategoryComponent(Logic logic, TextField nameInput, List<String> attributes, Stage newCategoryStage, String parent) {
+        VBox component = new VBox();
+        Label selectParent = new Label("Select a parent category, if you wish: ");
+        component.getChildren().add(selectParent);
+        component.getChildren().add(listNewCategoryButtons(logic, logic.listCategories(), nameInput, attributes,newCategoryStage, parent));
+        return component;
+    }
+    
+    public VBox getAttributeComponent(Logic logic, TextField nameInput, List<String> attributes, Stage newCategoryStage, String parent) {
+        VBox component = new VBox();
+        VBox addedAttributes = updateAttributes(attributes);
         TextField attributeInput = new TextField();
         Button newAttribute = new Button("Add attribute: ");
         newAttribute.setOnAction((event) -> {
-            
+            attributes.add(attributeInput.getText());
+            newCategory(logic, newCategoryStage, nameInput.getText(), attributes, parent);
         });
         
+        component.getChildren().addAll(newAttribute, attributeInput, addedAttributes);
+        
+        return component;
+    }
+    
+    public VBox updateAttributes(List<String> attributes) {
+        VBox updatedAttributes = new VBox();
+        for (String attribute: attributes) {
+            Label attrubuteLabel = new Label(" - " + attribute);
+            updatedAttributes.getChildren().add(attrubuteLabel);
+        }
+        return updatedAttributes;
     }
 }
