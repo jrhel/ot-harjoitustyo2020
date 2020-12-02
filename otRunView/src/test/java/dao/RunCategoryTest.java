@@ -18,6 +18,7 @@ public class RunCategoryTest {
     @Test
     public void tableExists() {
         RunCategoryDAO runCatDao = new RunCategoryDAO();
+        runCatDao.resetTable();
         assertTrue(runCatDao.ensureTableExists());
     }
     
