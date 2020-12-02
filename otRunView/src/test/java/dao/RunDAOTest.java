@@ -42,12 +42,13 @@ public class RunDAOTest {
         assertEquals(1, runDao.create(testRun));
     }
     
+    @Test
     public void runCanBeReadFromDB() {
         RunDAO runDao = new RunDAO();
         runDao.resetTable();
         
         LocalDate date = new LocalDate(2020, 10, 15);
-        LocalTime duration = new LocalTime(1, 57, 33, 10);
+        LocalTime duration = new LocalTime(1, 57, 33);
         List<Category> categories = new ArrayList<>();
         CategoryAttribute catAtt = new CategoryAttribute(1, "56km", 1);
         List<CategoryAttribute> catAtts = new ArrayList<>();
@@ -55,6 +56,7 @@ public class RunDAOTest {
         Category category = new Category(1, "category", catAtts, "");
         categories.add(category);        
         Run testRun = new Run(10.7, date, duration, 166, ".gpx", categories);
+        runDao.create(testRun);
         Run readRun = runDao.read(1);
         boolean readSuccess = true;
         if (!((readRun.getAvgCadence() == 166) && (readRun.getDate().equals(date)) && (readRun.getDistanceKm() == 10.7) && (readRun.getGpxFilePath().equals(".gpx")) && (readRun.getDuration().equals(duration)))) {
