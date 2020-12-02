@@ -15,7 +15,7 @@ This is a course project, for the course in Software Engineering (fi: "Ohjelmist
 
 **Week 5**
 
-[Week 5](https://github.com/jrhel/ot-harjoitustyo2020/releases/tag/week_5)
+[Week 5 (latest release)](https://github.com/jrhel/ot-harjoitustyo2020/releases/tag/week_5)
 
 [Week 5 (prelim.)](https://github.com/jrhel/ot-harjoitustyo2020/releases/tag/week_5_(prelim.))
 
