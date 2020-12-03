@@ -19,4 +19,5 @@
 | 30.11 | 1         | Adding ability to delete runs.         
 | 1.12  | 3         | Adding support for jar, and creating executable jar file of project. Updating project documentation in project remote repository. Excluded GUI from checkstyle, and fixed checkstyle error elsewhere in the code. Adding a few Tests. Expanding GUI a bit. Adding a preliminary release with respect to this weeks original deadline.
 | 2.12  | 5         | Expanding GUI to allow user to add new categories. Refined and tested previously written code. Creating a few more tests. Adding final release for week 5 to remote repository, and updating project documentation.
-| Tot.  | 50        |
+| 3.12  | 1         | Added draft UI to remote repository.
+| Tot.  | 51        |
