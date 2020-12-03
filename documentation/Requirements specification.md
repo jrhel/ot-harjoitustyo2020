@@ -12,7 +12,7 @@ The application is primarily aimed at single users, for whom the app offers a wa
 
 tba
 
-## Functinality
+## Functionality
 
 The user will be able to:
 -	Create categories for their runs (e.g. “Pavement”, “Trail”, “Track”, “5K”, “10K”, “tempo”. “easy” etc.),    **[done]**
