@@ -51,3 +51,11 @@ Thus the application and JUnit tests use the same application logic and the same
     }
     
 The lowermost constructor could also be used in the future to give paralell users paralell database tables without risk of accessing each others data.
+
+## Main user functionality
+
+Below, how the application implements some main user functionality in the form of sequence diagrams:
+
+### Creation of a new category:
+
+<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/SD_createCategory.jpg">
