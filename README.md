@@ -5,6 +5,8 @@ This is a course project, for the course in Software Engineering (fi: "Ohjelmist
 
 ## Documentation
 
+[User manual](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/User%20manual.md)
+
 [Requirements specification](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Requirements%20specification.md)
 
 [Record of working hours](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Record%20of%20working%20hours.md)
