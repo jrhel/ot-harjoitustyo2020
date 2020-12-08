@@ -28,9 +28,9 @@ The user will be able to:
     - Avg. cadence,
     - Avg. speed,
     - Applicable user-created categories.
--	Edit data in saved runs,
+-	Edit data in saved runs, **[done]**
 -   Delete runs, **[done]**
--   See an overview of any run saved in the application and the data added to that run,
+-   See an overview of any run saved in the application and the data added to that run, **[done]**
 -	Browse runs by user-created categories and open an overview of any run matching selected categories, 
 -   See an overview of all runs that match selected user-created categories including: 
     - Number of runs matching selected categories,
