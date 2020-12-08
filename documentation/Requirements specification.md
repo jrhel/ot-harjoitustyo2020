@@ -10,7 +10,7 @@ The application is primarily aimed at single users, for whom the app offers a wa
 
 ## User interface
 
-Draft UI (partially implemented):
+Ui illustrated (partially implemented):
 
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/draft_UI.jpg">
 
