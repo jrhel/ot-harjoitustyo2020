@@ -20,7 +20,7 @@ public class CategoryDAOTest {
     
     @Test
     public void categoryCanBeSavedToDB() {
-        CategoryDAO catDao = new CategoryDAO();
+        CategoryDAO catDao = new CategoryDAO("TestCategory");
         catDao.resetTable();
         
         Category category = new Category("newCategory");
@@ -29,7 +29,7 @@ public class CategoryDAOTest {
     
     @Test
     public void categoryPrimaryKeyCanBeObtained() {
-        CategoryDAO catDao = new CategoryDAO();
+        CategoryDAO catDao = new CategoryDAO("TestCAtegory");
         catDao.resetTable();
         
         Category category = new Category("category");
@@ -41,7 +41,7 @@ public class CategoryDAOTest {
     
     @Test
     public void categoryCanBeReadFromDB() {
-        CategoryDAO catDao = new CategoryDAO();
+        CategoryDAO catDao = new CategoryDAO("TestCategory");
         catDao.resetTable();
         
         Category category = new Category("category");

@@ -22,15 +22,27 @@ import org.joda.time.LocalTime;
 public class Logic {
     
     private RunDAO runDao;
+    private String runTableName;
     private CategoryDAO catDao;
+    private String categoryTableName;
     private CategoryAttributeDAO catAttributeDao;
+    private String categoryAttributeTableName;
     private RunCategoryDAO runCatDao;
+    private String runCategoryTableName;
 
     public Logic() {
-        this.runDao = new RunDAO();
-        this.catDao = new CategoryDAO();
-        this.catAttributeDao = new CategoryAttributeDAO();
-        this.runCatDao = new RunCategoryDAO();
+        this.runDao = new RunDAO("Run");
+        this.catDao = new CategoryDAO("Category");
+        this.catAttributeDao = new CategoryAttributeDAO("CategoryAttribute", "Category");
+        this.runCatDao = new RunCategoryDAO("RunCategory", "Run", "Category");
+        this.ensureDataBaseExists();
+    }
+    
+    public Logic(String runTableName, String categoryTableName, String runCategoryTableName, String categoryAttributeTableName) {
+        this.runDao = new RunDAO(runTableName);
+        this.catDao = new CategoryDAO(categoryTableName);
+        this.catAttributeDao = new CategoryAttributeDAO(categoryAttributeTableName, categoryTableName);
+        this.runCatDao = new RunCategoryDAO(runCategoryTableName, runTableName, categoryTableName);
         this.ensureDataBaseExists();
     }
     
@@ -53,14 +65,14 @@ public class Logic {
         return category.toString();
     }
     
-    public int saveRun(double distanceKm, String date, String duration, int avgCadence, String gpxFilePath, List<String> runCategories) {
+    public int saveRun(double distanceKm, String date, String duration, int steps, String gpxFilePath, List<String> runCategories) {
         List<Category> categories = new ArrayList<>();
         for (String category: runCategories) {
             int categoryID = catDao.getPrimaryKey(category);
             Category runCategory = catDao.read(categoryID);
             categories.add(runCategory);
         }
-        Run newRun = new Run(distanceKm, getLocalDateObject(date), getLocalTimeObject(duration), avgCadence, gpxFilePath, categories);
+        Run newRun = new Run(distanceKm, getLocalDateObject(date), getLocalTimeObject(duration), steps, gpxFilePath, categories);
         int runID = runDao.create(newRun);
                 
         for (Category runCategory: newRun.getCategories()) {

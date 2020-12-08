@@ -39,11 +39,11 @@ public class Run {
     public Run() {
     }
     
-    public Run(double distanceKm, LocalDate date, LocalTime duration, int avgCadence, String gpxFilePath, List<Category> categories) {
+    public Run(double distanceKm, LocalDate date, LocalTime duration, int steps, String gpxFilePath, List<Category> categories) {
         this.distanceKm = distanceKm;
         this.date = date;
         this.duration = duration;
-        this.avgCadence = avgCadence;
+        this.avgCadence = calculateAvgCadence(steps, this.duration);
         this.gpxFilePath = gpxFilePath;
         this.categories = categories;
         this.avgSpeedKmH = calculateAvgSpeedKmH(distanceKm, duration);
@@ -129,6 +129,12 @@ public class Run {
         return distanceKm / hourTime;
     }
     
+    public int calculateAvgCadence(int steps, LocalTime time) {
+        double minuteTime = (time.getHourOfDay() * 60) + time.getMinuteOfHour() + time.getSecondOfMinute() / 60;
+        int cadence = (int) (steps / minuteTime);
+        return cadence;
+    }
+    
     public LocalTime durationConversion(String duration) {
         String [] timeUnits = duration.split(":");
         int hours = Integer.valueOf(timeUnits[0]);
@@ -147,8 +153,9 @@ public class Run {
         for (Category category: categories) {
             runCategories = runCategories + ", " + category.getName();
         }
-        
-        String runInfo = date + ", " + distance + duration + runCategories;
+        String cadence = ", " + avgCadence;
+        String speed = ", " + avgSpeedKmH + " Km/h";
+        String runInfo = date + ", " + distance + duration + speed + cadence + runCategories;
         return runInfo;
     }    
     

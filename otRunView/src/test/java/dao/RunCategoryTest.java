@@ -17,14 +17,14 @@ public class RunCategoryTest {
     
     @Test
     public void tableExists() {
-        RunCategoryDAO runCatDao = new RunCategoryDAO();
+        RunCategoryDAO runCatDao = new RunCategoryDAO("TestRunCategory", "TestRun", "TestCategory");
         runCatDao.resetTable();
         assertTrue(runCatDao.ensureTableExists());
     }
     
     @Test
     public void tabelCanBeReset() {
-        RunCategoryDAO runCatDao = new RunCategoryDAO();
+        RunCategoryDAO runCatDao = new RunCategoryDAO("TestRunCategory", "TestRun", "TestCategory");
         assertTrue(runCatDao.resetTable());
     }
     

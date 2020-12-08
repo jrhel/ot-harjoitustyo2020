@@ -76,7 +76,7 @@ public class Category {
     public String toString() {
         String allInfo = "id: " + id + ", name: " + name + ", parent: " + parentName + ", attributes:\n";
         for (CategoryAttribute attribute: attributes) {
-            allInfo = allInfo + attribute.toString() + "\n";
+            allInfo = allInfo + attribute.getAttribute() + "\n";
         }
         return allInfo;
     }

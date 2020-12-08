@@ -1,20 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.domain;
 
 /**
- *
- * @author J
+ * CategoryAttribute is an object representing attributes belonging to a specific user generated category * 
  */
 public class CategoryAttribute {
     
     private int id;
     private String attribute;
     private int categoryID;
-
+    
+    /**
+     * Constructor of initiating a CategoryAttribute object
+     *
+     * @param   id   As integer functioning as a unique identifier for the attribute. 
+     * @param   attribute   A string representing the attribute, or its value, as defined by the user
+     * @param   categoryID   The unique identifier for the category the attribute belongs to
+     */ 
     public CategoryAttribute(int id, String attribute, int categoryID) {
         this.id = id;
         this.attribute = attribute;
@@ -44,11 +46,5 @@ public class CategoryAttribute {
     public int getCategoryID() {
         return categoryID;
     }
-
-    @Override
-    public String toString() {
-        return attribute;
-    }
-    
     
 }

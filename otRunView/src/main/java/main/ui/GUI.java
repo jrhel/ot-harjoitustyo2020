@@ -21,6 +21,8 @@ import main.domain.Category;
 import main.domain.CategoryAttribute;
 import main.domain.Logic;
 import main.domain.Run;
+import org.joda.time.LocalDate;
+import org.joda.time.LocalTime;
 
 /**
  *
@@ -80,16 +82,8 @@ public class GUI extends Application {
         return runDisplay;
     }
     
-    public String getRunDate(Run run) {
-        int day = run.getDate().getDayOfMonth();
-        String month = run.getDate().monthOfYear().getAsShortText();
-        int year = run.getDate().getYear();
-        String date = month + " " + day + " " + year;
-        return date;
-    }
-    
     public String getRunInfo(Run run) {
-        String date = getRunDate(run);
+        String date = run.getDateAsText();
         
         String distance = run.getDistanceKm() + " Km, ";
         
@@ -103,20 +97,53 @@ public class GUI extends Application {
     }
     
     public void newRun(Logic logic) {
+        
+        List<Category> runCategories = new ArrayList<>();
+        
         Stage newRunStage = new Stage();
         newRunStage.setTitle("Add a new run");
         
-        VBox runData = newDataForm();
+        TextField day = new TextField();
+        TextField month = new TextField();
+        TextField year = new TextField();
+        TextField kmInt = new TextField();
+        TextField kmDec = new TextField();
+        TextField hours = new TextField();
+        TextField minutes = new TextField();
+        TextField seconds = new TextField();
+        TextField steps = new TextField();
         
-        Scene newRunScene = new Scene(runData);
+        VBox runData = newRunDataForm(day, month, year, kmInt, kmDec, hours, minutes, seconds, steps);
+        VBox categoryData = listRunCategoryButtons(logic.listCategories(), runCategories);
+        HBox upperScene = new HBox();
+        upperScene.getChildren().addAll(runData, categoryData);
+        
+        HBox lowerScene = new HBox();
+        Label gpxLabel = new Label("Please enter the file path for the .gpx-file of your run, if you wish: ");
+        TextField gpxFilePath = new TextField();
+        Button saveButton = saveButton(logic, day, month, year, kmInt, kmDec, hours, minutes, seconds, steps, gpxFilePath, runCategories);
+        lowerScene.getChildren().addAll(gpxLabel, gpxFilePath, saveButton);
+        
+        VBox fullScene = new VBox();
+        fullScene.getChildren().addAll(upperScene, lowerScene);
+        
+        Scene newRunScene = new Scene(fullScene);
         newRunStage.setScene(newRunScene);       
         newRunStage.show();
     }
     
-    public Button saveButton(Logic logic, Run run) {
+    public Button saveButton(Logic logic, TextField day, TextField month, TextField year, TextField kmInt, TextField kmDec, TextField hours, TextField minutes, TextField seconds, TextField steps, TextField gpxFilePath, List<Category> categories) {
         Button save = new Button("Save run");
         save.setOnAction((event) -> {
-            
+            // double distanceKm, LocalDate date, LocalTime duration, int steps, String gpxFilePath, List<Category> categories
+            double distanceKm = Double.valueOf(kmInt.getText() + "." + kmDec.getText());
+            String date = year.getText() + "-" + month.getText() + "-" + day.getText();
+            String duration = hours.getText() + ":" + minutes.getText() + ":" + seconds.getText();
+            List<String> runCategories = new ArrayList<>();
+            for (Category category: categories) {
+                runCategories.add(category.getName());
+            }
+            logic.saveRun(distanceKm, date, duration, Integer.valueOf(steps.getText()), gpxFilePath.getText(), runCategories);
         });
         
         return save;
@@ -124,12 +151,23 @@ public class GUI extends Application {
     
     public void showRun(Run run, Logic logic) {
         Stage runStage = new Stage();
-        String title = run.getDateAsText() + ", " + run.getDistanceKm() + ", " + run.getDuration() + ", " + run.getAvgSpeedKmH() + ", " + run.getAvgCadence();
+        String title = "Your run, " + run.getDateAsText();
         runStage.setTitle(title);
         
+        Button edit = editRun(logic, run);
+        Label runData = new Label("Avg. cadence: " +  run.getAvgCadence() + ", Avg. Speed: " + run.getAvgSpeedKmH() + ", Distance: " + run.getDistanceKm() + " Km, Time: " + run.getDuration());
         Button deleteRun = deleteRun(logic, run);
+        HBox upperScene = new HBox();
+        upperScene.getChildren().addAll(edit, runData, deleteRun);
         
-        Scene runScene = new Scene(deleteRun);
+        HBox lowerScene = new HBox();
+        VBox runCategories = listRunCategories(run);
+        lowerScene.getChildren().addAll(runCategories);
+        
+        VBox fullScene = new VBox();
+        fullScene.getChildren().addAll(upperScene, lowerScene);
+        
+        Scene runScene = new Scene(fullScene);
         runStage.setScene(runScene);       
         runStage.show();
         
@@ -144,69 +182,105 @@ public class GUI extends Application {
         return deleteRun;
     }
     
-    public FlowPane getDatePane() {
+    public Button editRun(Logic logic, Run run) {
+        Button deleteRun = new Button("Edit");
+        deleteRun.setOnAction((event) -> {
+            newRun(logic);
+            logic.deleteRun(run);
+        });
+        
+        return deleteRun;
+    }
+    
+    public VBox listRunCategories(Run run) {
+        VBox runCategories = new VBox();
+        Label categoriesLabel = new Label("Categories: ");
+        runCategories.getChildren().add(categoriesLabel);
+        for (Category category: run.getCategories()) {
+            Label categoryName = new Label(category.getName());
+            runCategories.getChildren().add(categoryName);
+        }
+        return runCategories;
+    }
+    
+    public FlowPane getDatePane(TextField day, TextField month, TextField year) {
         FlowPane datePane = new FlowPane();
         Label dateLabel = new Label("Date: ");
-        TextField date = new TextField();
-        date.setMaxWidth(32);
+        day.setMaxWidth(32);
         Label dashOne = new Label(" / ");
-        TextField month =  new TextField();
         month.setMaxWidth(32);
         Label dashTwo = new Label(" / ");
-        TextField year = new TextField();
         year.setMaxWidth(64);
-        datePane.getChildren().addAll(dateLabel, date, dashOne, month, dashTwo, year);
+        datePane.getChildren().addAll(dateLabel, day, dashOne, month, dashTwo, year);
         return datePane;
     }
     
-    public FlowPane getDistancePane() {
+    public FlowPane getDistancePane(TextField kmInt, TextField kmDec) {
         FlowPane distancePane = new FlowPane();
         Label distanceLabel = new Label("Distance: ");
-        TextField distanceInt = new TextField();
-        distanceInt.setMaxWidth(32);
+        kmInt.setMaxWidth(32);
         Label dot = new Label(" . ");
-        TextField distanceDec = new TextField();
-        distanceDec.setMaxWidth(32);
+        kmDec.setMaxWidth(32);
         Label distanceUnit = new Label(" Km");
-        distancePane.getChildren().addAll(distanceLabel, distanceInt, dot, distanceDec, distanceUnit);
+        distancePane.getChildren().addAll(distanceLabel, kmInt, dot, kmDec, distanceUnit);
         return distancePane;
     }
     
-    public FlowPane getTimePane() {
+    public FlowPane getTimePane(TextField hours, TextField minutes, TextField seconds) {
         FlowPane timePane = new FlowPane();
         Label timeLabel = new Label("Time: ");
-        TextField hours = new TextField();
         hours.setMaxWidth(32);
         Label commaOne = new Label(" : ");
-        TextField minutes = new TextField();
         minutes.setMaxWidth(32);
         Label commaTwo = new Label(" : ");
-        TextField seconds = new TextField();
         seconds.setMaxWidth(32);
         timePane.getChildren().addAll(timeLabel, hours, commaOne, minutes, commaTwo, seconds);
         return timePane;
     }
     
-    public FlowPane getCadencePane() {
+    public FlowPane getCadencePane(TextField steps) {
         FlowPane cadencePane = new FlowPane();
-        Label cadenceLabel = new Label("Avg. cadence: ");
-        TextField cadenceInput = new TextField();
-        cadenceInput.setMaxWidth(64);
-        cadencePane.getChildren().addAll(cadenceLabel, cadenceInput);
+        Label stepLabel = new Label("Steps: ");
+        steps.setMaxWidth(64);
+        cadencePane.getChildren().addAll(stepLabel, steps);
         return cadencePane;
     }
     
-    public VBox newDataForm() {
+    public VBox newRunDataForm(TextField day, TextField month, TextField year, TextField kmInt, TextField kmDec, TextField hours, TextField minutes, TextField seconds, TextField steps) {
         VBox dataForm = new VBox();
         
-        FlowPane datePane = getDatePane();        
-        FlowPane distancePane = getDistancePane();
-        FlowPane timePane = getTimePane();
-        FlowPane cadencePane = getCadencePane();
+        FlowPane datePane = getDatePane(day, month, year);        
+        FlowPane distancePane = getDistancePane(kmInt, kmDec);
+        FlowPane timePane = getTimePane(hours, minutes, seconds);
+        FlowPane cadencePane = getCadencePane(steps);
         
         dataForm.getChildren().addAll(datePane, distancePane, timePane, cadencePane);
         
         return dataForm;
+    }
+    
+    public VBox listRunCategoryButtons(List<Category> allCategories, List<Category> runCategories) {
+        VBox categoryButtons = new VBox();
+        for (Category category: allCategories) {
+            categoryButtons.getChildren().add(getRunCategoryButton(category, runCategories));
+        }        
+        return categoryButtons;
+    }
+    
+    public Button getRunCategoryButton(Category category, List<Category> runCategories) {
+        String attributes = "";
+        for (CategoryAttribute catAttribute: category.getAttributes()) {
+            attributes = attributes + ", " + catAttribute.getAttribute();
+        }
+        String categoryInfo = category.getName() + attributes;
+        if (!category.getParentName().equals("")) {
+            categoryInfo = categoryInfo + ", (" + category.getParentName() + ")";
+        }
+        Button categoryButton = new Button(categoryInfo);
+        categoryButton.setOnAction((event) -> {
+            runCategories.add(category);
+        });
+        return categoryButton;
     }
     
     public VBox getCategoryDisplay(Logic logic) {
