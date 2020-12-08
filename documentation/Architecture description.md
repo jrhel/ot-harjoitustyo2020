@@ -32,4 +32,22 @@ The classes _CategoryDAO_, _CategoryAttributeDAO_, _RunDAO_, and _RunCategoryDAO
 The application uses the H2 database engine, handled by these classes, and observes the [DAO design pattern](https://en.wikipedia.org/wiki/Data_access_object).
 
 In order for JUnit tests not to interfere with the users data, 1) the applications DAO classes implement a dynamic naming scheme for the database tables they use while retaining the relationship between the DAOs and thus the intactness of the database, 2) JUnit tests use the same data access objects as the application, but initialize the application logic with a different constructor passing on different names for the DAOs to use for their database tables.
-Thus the application and JUnit tests use the same application logic and the same database, but parallel database tables instead of the same ones.
+Thus the application and JUnit tests use the same application logic and the same database, but parallel database tables instead of the same ones. The uppermost constructor is the constructor used by the application, and the lowermost constructer is used by JUnit tests:
+
+public Logic() {
+        this.runDao = new RunDAO("Run");
+        this.catDao = new CategoryDAO("Category");
+        this.catAttributeDao = new CategoryAttributeDAO("CategoryAttribute", "Category");
+        this.runCatDao = new RunCategoryDAO("RunCategory", "Run", "Category");
+        this.ensureDataBaseExists();
+    }
+    
+    public Logic(String runTableName, String categoryTableName, String runCategoryTableName, String categoryAttributeTableName) {
+        this.runDao = new RunDAO(runTableName);
+        this.catDao = new CategoryDAO(categoryTableName);
+        this.catAttributeDao = new CategoryAttributeDAO(categoryAttributeTableName, categoryTableName);
+        this.runCatDao = new RunCategoryDAO(runCategoryTableName, runTableName, categoryTableName);
+        this.ensureDataBaseExists();
+    }
+    
+The lowermost constructor could also be used in the future to give paralell users paralell database tables without risk of accessing each others data.
