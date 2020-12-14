@@ -25,4 +25,5 @@
 | 11.12 | 3         | Added support for JXMapViewer2 and JavaFX-swing, and ability to show an OpenStreetMap in GUI. Coded ability to read coordinates from .gpx file, and show their route on map in GUI.
 | 12.12 | 2         | Revised previously written code, and added ability to move and zoom map with mouse.
 | 13.12 | 1         | Coded ability to calculate the center of the map based on a gps route.
-| Tot.  | 71        |
+| 14.12 | 2         | Divided GUI into separate classes and packets.
+| Tot.  | 73        |
