@@ -31,7 +31,7 @@ The user will be able to:
 -	Edit data in saved runs, **[done]**
 -   Delete runs, **[done]**
 -   See an overview of any run saved in the application and the data added to that run, **[done]**
--	Browse runs by user-created categories and open an overview of any run matching selected categories, 
+-	Browse runs by user-created categories and open an overview of any run matching selected categories, **[done]**
 -   See an overview of all runs that match selected user-created categories including: 
     - Number of runs matching selected categories,
     - Total distance of runs matching selected categories (for runs for which user has added .gpx files),
