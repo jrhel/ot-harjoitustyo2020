@@ -28,4 +28,5 @@
 | 14.12 | 4         | Divided GUI into separate classes and packets. Added ability to browse runs by user-created categories and open an overview of any run matching selected categories.
 | 15.12 | 3         | Added ability to open an overview of all runs, matching selected categories, and their aggregated data.
 | 16.12 | 4         | Coded graph showing duration of runs per moment in time, and ability to show many runs on the same map.
+| 17.12 | 2         | Fixed bugs in Javadoc causing erros in Javadoc report generation.
 | Tot.  | 82        |
