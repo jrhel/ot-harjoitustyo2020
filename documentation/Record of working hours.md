@@ -31,5 +31,5 @@
 | 17.12 | 2         | Fixed bugs in Javadoc causing erros in Javadoc report generation.
 | 18.12 | 3         | Included javadoc in Checkstyle report. Refactored DAO:s and made them implement DAO interface. Refactored code for tests. Fixed Checkstyle errors.
 | 19.12 | 5         | Refactoring previously written code. Fixed Checkstyle errors. Refactored Tests to work with refactored code.
-| 20.12 | 6         | Changed how the overview page looks i nteh GUI, and refactored previously written code. Added ability for GUI to show messages (e.g. in case of errors), and update the main page of the GUI as categories and runs are added/deleted. Updating the reqirements specification and architecture description in the remote depository.
+| 20.12 | 8         | Changed how the overview page looks i nteh GUI, and refactored previously written code. Added ability for GUI to show messages (e.g. in case of errors), and update the main page of the GUI as categories and runs are added/deleted. Updating the reqirements specification and architecture description in the remote depository. Made new sequence diagrams for creating a new category and run.
 | Tot.  | 90        |
