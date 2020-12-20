@@ -17,10 +17,8 @@ The main user interface consists of three pages (see below).
 The "front page", showing the user a list and a map of all their runs, as well as a list of categories they have saved to the application. The front page also contains some buttons for further interaction:
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/frontPage.jpg">
 
-'
 The "run overview", showing the user some detailed metrics and information regarding their run, a list of any categories they have tagged it with, a map of their run (if they have provided a .gpx file for it), and buttons for editing their run or deleting it from the application:
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/runPage.jpg">
-
 
 ## Functionality
 
@@ -33,7 +31,11 @@ The front page allows the user to:
 -   reset the application, so that it contains no data.
 
 The run overview allows the user to:
-- 
+-   see some detailed metrics and information regarding their run, including the date and distance and duration of the run, the avg. speed and avg. cadence during the run, 
+-   see all teh categories the run has been tagged with,
+-   buttons for editing and deleting the run,
+-   see a map of the run (if they have provided a .gpx file for it),
+-   the file path for where the .gpx file is located in the local file system.
 
 The user will be able to:
 -	Create categories for their runs (e.g. “Pavement”, “Trail”, “Track”, “5K”, “10K”, “tempo”. “easy” etc.),    **[done]**
