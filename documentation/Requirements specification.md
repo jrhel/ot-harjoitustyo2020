@@ -26,6 +26,8 @@ The "run overview" (below), showing the user some detailed metrics and informati
 The "category overview" (below), showing an overview of all runs matching selected categories:
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/overviewPage.jpg">
 
+These images show a situation where only two runs of the same kind have been saved to the application. Obviously, the pages and the information they display become more interesting the more runs are saved in the application. The graph and maps adjust automatically to the data, but the desired level of zoom in the map will have to be adjusted manually with the scroll wheel on a mouse. The center of the map also moves by clicking on the map with the mouse and dragging it.
+
 ## Functionality
 
 The front page allows the user to:
