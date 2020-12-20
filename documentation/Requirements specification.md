@@ -17,8 +17,8 @@ The main user interface consists of three pages (see below).
 The "front page", showing the user a list and a map of all their runs, as well as a list of categories they have saved to the application. The front page also contains some buttons for further interaction:
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/frontPage.jpg">
 
-Pressing the "Add a new run" button further opens a form for entering the relevant information for saving a new run to the application.
-Pressing the "Add a new category" button further opens a form for entering the relevant information for saving a new category to the application.
+Pressing the "Add a new run" button further opens a form, for entering the relevant information for saving a new run to the application.
+Pressing the "Add a new category" button further opens a form, for entering the relevant information for saving a new category to the application.
 
 The "run overview", showing the user some detailed metrics and information regarding their run, a list of any categories they have tagged it with, a map of their run (if they have provided a .gpx file for it), and buttons for editing their run or deleting it from the application:
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/runPage.jpg">
