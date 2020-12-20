@@ -8,8 +8,6 @@ The application includes automated tests for both the application logic and the 
 
 The application logic, i.e. classes contained by the package [_main.domain_](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/otRunView/src/main/java/main/domain), is tested by corresponding classes in the test package [_domain_](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/otRunView/src/test/java/domain).
 
-<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/domainTests.jpg">
-
 ### DAO:s
 
 The DAO:s, i.e. classes contained by the package [_main.dao_](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/otRunView/src/main/java/main/dao), are tested by corresponding classes in the test package [_dao_](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/otRunView/src/test/java/dao).
@@ -32,6 +30,12 @@ Thus the application and JUnit tests use the same application logic and the same
         this.runCatDao = new RunCategoryDAO(runCategoryTableName, runTableName, categoryTableName);
         this.ensureDataBaseExists();
     }
+
+### TEst coverage
+
+<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/testprosent.jpg">
+
+Test for application logic and DAO:s cover 
 
 ## System testing
 
