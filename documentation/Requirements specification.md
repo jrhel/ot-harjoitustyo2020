@@ -12,9 +12,11 @@ The application is primarily aimed at single users, for whom the app offers a wa
 
 ## User interface
 
-Ui illustrated (mostly implemented):
+The main user interface consists of three pages (see below).
 
-<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/draft_UI.jpg">
+The "front page":
+
+<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/frontPage.jpg">
 
 ## Functionality
 
