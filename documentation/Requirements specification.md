@@ -40,6 +40,13 @@ The run overview allows the user to:
 -   see a map of the run (if they have provided a .gpx file for it),
 -   the file path for where the .gpx file is located in the local file system.
 
+The category overview allows the user to:
+-   see some aggregated data regarding their shosen categories, including how many runs match the overview includes, their combined distance and duration, and the avg. duration adn avg. speed and avg. cadence of the included runs,
+-   some detailed metrics and information regarding their best* personal run, including the date and distance and duration of that run, the avg. speed and avg. cadence during that run, and all the categories that it has been tagged with,
+
+* Pest personal run is measured by fastest avg speed.
+
+
 The user will be able to:
 -	Create categories for their runs (e.g. “Pavement”, “Trail”, “Track”, “5K”, “10K”, “tempo”. “easy” etc.),    **[done]**
 -	Create subcategories to higher categories, e.g. “Surface” = {“Pavement”, “Trail”, “Track”}, “Distance” = {“5K”, “10K”},     **[done]**
