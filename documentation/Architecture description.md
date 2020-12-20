@@ -6,21 +6,25 @@ The application implements a three level design, in the form that the package _m
 
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/package%20structure.jpg">
 
+More specifically, the class main.Main launches the class _mai.ui.GUI_, which in turn initiates an instance of the class _main.ui.stage.MainStage_ from which user interaction is possible.
+
 ## User interface
 
 The main user interface consists of three pages (see below).
-- The "front page", showing the user a list and a map of all their runs, as well as a list of categories they have saved to the application. The front page also contains some buttons for further interaction, 
+- The "front page" (_main.ui.stage.MainStage_), showing the user a list and a map of all their runs, as well as a list of categories they have saved to the application. The front page also contains some buttons for further interaction, 
 - The "run overview", showing the user some detailed metrics and information regarding their run, a list of any categories they have tagged it with, a map of their run (if they have provided a .gpx file for it), and buttons for editing their run or deleting it from the application, 
 - The "category overview", showing an overview of all runs matching selected categories.
 
 Additionally, the user interface can display two forms for user input, popups with messages to the user in specific cases.
-All pages and popups use their own Stage objects, which are initated, closed, or updated depending on the requirements of the situation. These are contained in the package _mai.ui.stage_. 
+All pages and popups use their own Stage objects, which are initated, closed, or updated depending on the requirements of the situation. These are contained in the package _main.ui.stage_. 
+
+The map functionality of the user interface is contained in the package _main.ui.map_. Within this package, the class _RunMap_ functions as the packages internal logic. _RunMap_ takes the application logic and a list of .gpx file paths as parameters, and creates a JXMapViewer object which gets wrapped in a SwingNode object which gets wrapped in StackPane object to be used by the main GUI implemented with JavaFX.
 
 ## Application logic
 
 The main responsibility for the application logic lies with the _Logic_ class, which is supported by the classes _Run_, _Category_, and _CategoryAttribute_, in addition to the class _AggregatedRunData_. The _Logic_ class controls the DAO classess and serves the UI, as illlustrated below:
 
-<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/package-class%20diagram.jpg">
+<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/package_ClassDiagram.jpg">
 
 ## Persistent storage of application data
 
