@@ -39,7 +39,7 @@ public class RunDAOTest {
         categories.add(category);
         
         Run testRun = new Run(5.5, date, duration, 173, "", categories);
-        assertEquals(1, runDao.create(testRun));
+        assertEquals(1, runDao.create(testRun).longValue());
     }
     
     @Test

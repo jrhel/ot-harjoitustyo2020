@@ -24,7 +24,7 @@ public class CategoryDAOTest {
         catDao.resetTable();
         
         Category category = new Category("newCategory");
-        assertTrue(catDao.create(category));
+        assertEquals(1, catDao.create(category).longValue());
     }
     
     @Test

@@ -13,8 +13,7 @@ import org.joda.time.*;
  *
  * @author J
  */
-public class Run {
-    
+public class Run {    
     private int id;
     private double distanceKm;
     private LocalDate date;
@@ -25,6 +24,7 @@ public class Run {
     private List<Category> categories;
 
     public Run(int id, double distanceKm, LocalDate date, String duration, double avgSpeedKmH, int avgCadence, String gpxFilePath) {
+        
         this.id = id;
         this.distanceKm = distanceKm;
         this.date = date;
@@ -39,7 +39,7 @@ public class Run {
     public Run() {
     }
     
-    public Run(double distanceKm, LocalDate date, LocalTime duration, int steps, String gpxFilePath, List<Category> categories) {
+    public Run(double distanceKm, LocalDate date, LocalTime duration, int steps, String gpxFilePath, List<Category> categories) {        
         this.distanceKm = distanceKm;
         this.date = date;
         this.duration = duration;
@@ -49,7 +49,7 @@ public class Run {
         this.avgSpeedKmH = calculateAvgSpeedKmH(distanceKm, duration);
     }
 
-    public int getID() {
+    public int getId() {
         return id;
     }
 
@@ -88,8 +88,16 @@ public class Run {
     public List<Category> getCategories() {
         return categories;
     }
+    
+    public String printCategories() {
+        String categoryNames = "";
+        for (Category category: categories) {
+            categoryNames = categoryNames + ", " + category.getName();
+        }
+        return categoryNames;
+    }
 
-    public void setID(int id) {
+    public void setId(int id) {
         this.id = id;
     }
     
@@ -132,6 +140,7 @@ public class Run {
     public int calculateAvgCadence(int steps, LocalTime time) {
         double minuteTime = (time.getHourOfDay() * 60) + time.getMinuteOfHour() + time.getSecondOfMinute() / 60;
         int cadence = (int) (steps / minuteTime);
+        
         return cadence;
     }
     
@@ -139,24 +148,10 @@ public class Run {
         String [] timeUnits = duration.split(":");
         int hours = Integer.valueOf(timeUnits[0]);
         int minutes = Integer.valueOf(timeUnits[1]);
-        int seconds = Integer.valueOf(timeUnits[2]);
+        int seconds = Integer.valueOf(timeUnits[2]);  
         
         LocalTime timeObject = new LocalTime(hours, minutes, seconds);
+        
         return timeObject;
     }
-
-    @Override
-    public String toString() {
-        String date = getDateAsText();
-        String distance = distanceKm + " Km, ";
-        String runCategories = "";
-        for (Category category: categories) {
-            runCategories = runCategories + ", " + category.getName();
-        }
-        String cadence = ", " + avgCadence;
-        String speed = ", " + avgSpeedKmH + " Km/h";
-        String runInfo = date + ", " + distance + duration + speed + cadence + runCategories;
-        return runInfo;
-    }    
-    
 }

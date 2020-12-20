@@ -9,30 +9,21 @@ import java.sql.*;
 import java.util.*;
 
 /**
- * This class is a Data Access Object interface, to be implemented by each Data Access Object
+ * This class is a Data Access Object interface, to be implemented by each Data Access Object.
  */
 public interface DAO<T, K> {
     
     /**
-     * This method creates an entry into the database.
-     *
-     * @param   object   The object, of class "T", to be entered into the database.
+     * This method ensures that the database table exists.
+     * 
+     * @return  Boolean value for wether or not database table corresponding to the class "T" exists after calling the method
      */  
-    void create(T object);
+    boolean ensureTableExists();
     
     /**
-     * This method deletes a database entry with the primary key "K".
-     *
-     * @param   key   The key of the entry which is to be deleted.
-     */  
-    void delete(K key);
-    
-    /**
-     * This method ensures that the database table exists
+     * This method resets the database table exists, so that it contains no data but is ready to be used.
      * 
-     * 
-     */  
-    void ensureTableExists();
-    
-    void resetTable();
+     * @return  Boolean value for wether or not database table corresponding to the class "T" was reset
+     */ 
+    boolean resetTable(); 
 }

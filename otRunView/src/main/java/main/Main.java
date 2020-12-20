@@ -5,9 +5,7 @@
  */
 package main;
 
-import java.util.Scanner;
 import main.ui.GUI;
-import main.ui.TempTextUI;
 
 /**
  *

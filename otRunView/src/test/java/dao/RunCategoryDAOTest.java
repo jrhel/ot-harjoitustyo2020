@@ -13,7 +13,7 @@ import org.junit.Test;
  *
  * @author J
  */
-public class RunCategoryTest {
+public class RunCategoryDAOTest {
     
     @Test
     public void tableExists() {

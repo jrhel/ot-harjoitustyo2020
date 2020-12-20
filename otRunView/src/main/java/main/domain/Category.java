@@ -12,8 +12,7 @@ import java.util.List;
  *
  * @author J
  */
-public class Category {
-    
+public class Category {    
     private Integer id;
     private String name;
     private List<CategoryAttribute> attributes;
@@ -70,15 +69,5 @@ public class Category {
 
     public String getParentName() {
         return parentName;
-    }  
-
-    @Override
-    public String toString() {
-        String allInfo = "id: " + id + ", name: " + name + ", parent: " + parentName + ", attributes:\n";
-        for (CategoryAttribute attribute: attributes) {
-            allInfo = allInfo + attribute.getAttribute() + "\n";
-        }
-        return allInfo;
     }
-    
 }

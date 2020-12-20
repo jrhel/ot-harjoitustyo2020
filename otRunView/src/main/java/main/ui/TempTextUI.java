@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import main.domain.Category;
 import main.domain.Logic;
 import main.domain.Run;
 
@@ -23,7 +24,7 @@ public class TempTextUI {
         
         Logic logic = new Logic();
         logic.ensureDataBaseExists();
-                
+     /*
         Scanner kbInput = new Scanner(System.in);                 
         
         while (true) {
@@ -42,10 +43,12 @@ public class TempTextUI {
                 readRun(kbInput, logic);
             } else if (userCommand.equals("list runs")) {
                 listRuns(logic);
+            } else if (userCommand.equals("map")) {
+                
             }
             
         }
-        
+    */    
     }
     
     public static String getCommandAndInstructions(Scanner kbInput) {
@@ -87,6 +90,12 @@ public class TempTextUI {
     private static void readRun(Scanner kbInput, Logic logic) {
         System.out.println("Enter the primary key for the run: ");
         int pk = Integer.valueOf(kbInput.nextLine());
+        Run run = logic.readRun(pk);
+        String runInfo = run.getDate() + ", Distance: " + run.getDistanceKm() + ", Time: " + run.getDuration() + ", Avg.Speed:" + run.getAvgSpeedKmH() + "; Avg.Cadence: " + run.getAvgCadence() + "Categories: ";
+        
+        for (Category category: run.getCategories()) {
+            runInfo = runInfo + category.toString();
+        }
         System.out.println(logic.readRun(pk));
     }
     
@@ -110,25 +119,34 @@ public class TempTextUI {
         }
         logic.saveCategory(newCategory, attributes, parentCategory);
     }
-    
+    /*
     private static void read(Scanner kbInput, Logic logic) {
-        
+
         System.out.println("What do you want to read:");
         String toBeRead = kbInput.nextLine();
         if (!(toBeRead.equals(""))) {
             System.out.println(logic.readCategory(toBeRead));
         }
         System.out.println("You entered an empty string. This is not a valid input.");
+
     }
-    
+    */
     private static void resetDatabase(Logic logic) {
         logic.resetDatabase();
     }
     
     private static void listRuns(Logic logic) {
+        System.out.println("Runs: " + logic.listRuns().size());
         for (Run run: logic.listRuns()) {
             System.out.println(run);
         }
     }
     
+    public void printMapInfo(Scanner kbInput, Logic logic) {
+        System.out.println("Enter the primary key for the run: ");
+        int pk = Integer.valueOf(kbInput.nextLine());
+        Run run = logic.readRun(pk);
+        List<String> lines = logic.readGpxFile(run.getGpxFilePath());
+    }
+
 }

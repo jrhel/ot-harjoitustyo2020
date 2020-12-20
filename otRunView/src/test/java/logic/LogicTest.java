@@ -10,6 +10,7 @@ import java.util.List;
 import main.dao.CategoryDAO;
 import main.dao.RunDAO;
 import main.domain.Category;
+import main.domain.CategoryAttribute;
 import main.domain.Logic;
 import main.domain.Run;
 import org.joda.time.LocalDate;
@@ -34,7 +35,12 @@ public class LogicTest {
         attributes.add("trail");
         logic.saveCategory("category", attributes, "");
         
-        assertEquals("id: 1, name: category, parent: , attributes:\n5k\ntrail\n", logic.readCategory("category"));        
+        Category readCategory = logic.readCategory(1);
+        String readAttributes = ", attributes:";
+        for (CategoryAttribute attribute: readCategory.getAttributes()) {
+            readAttributes = readAttributes + "\n" + attribute.getAttribute();
+        }
+        assertEquals("id: 1, name: category, parent: , attributes:\n5k\ntrail", "id: " + readCategory.getId() + ", name: " + readCategory.getName() + ", parent: " + readCategory.getParentName() + readAttributes);        
     }
     
     @Test
@@ -47,7 +53,14 @@ public class LogicTest {
         List<String> attributes = new ArrayList<>();
         attributes.add("sunny");
         logic.saveCategory("child", attributes, "parent");
-        assertEquals("id: 2, name: child, parent: parent, attributes:\nsunny\n", logic.readCategory("child"));
+        
+        Category readCategory = logic.readCategory(2);
+        String readAttributes = ", attributes:";
+        for (CategoryAttribute attribute: readCategory.getAttributes()) {
+            readAttributes = readAttributes + "\n" + attribute.getAttribute();
+        }
+        
+        assertEquals("id: 2, name: child, parent: parent, attributes:\nsunny", "id: " + readCategory.getId() + ", name: " + readCategory.getName() + ", parent: " + readCategory.getParentName() + readAttributes);
     }
     
     @Test
@@ -58,7 +71,10 @@ public class LogicTest {
         CategoryDAO catDao = new CategoryDAO("TestCategory");
         Category category = new Category(1, "child", "parent");
         catDao.create(category);
-        assertEquals(category.toString(), logic.readCategory("child"));
+        
+        Category readCategory = logic.readCategory(1);
+        
+        assertEquals("id: " + category.getId() + ", name: " + category.getName() + ", parent: " + category.getParentName(), "id: " + readCategory.getId() + ", name: " + readCategory.getName() + ", parent: " + readCategory.getParentName());
     }
     
     @Test
@@ -104,8 +120,10 @@ public class LogicTest {
         logic.saveCategory(category, attributes, "");
         List<String> categories = new ArrayList<>();
         categories.add(category);
-        logic.saveRun(distanceKm, date, duration, steps, gpxFilePath, categories);
-        assertEquals("Dec 10 2018" + ", " + distanceKm + " Km, " + duration + ".000, long run", logic.readRun(1));
+        int savedRunId = logic.saveRun(distanceKm, date, duration, steps, gpxFilePath, categories);
+        Run readRun = logic.readRun(savedRunId);
+        String readRunString = readRun.getDateAsText() + ", " + readRun.getDistanceKm() + " Km, " + readRun.getDuration() + ", long run";
+        assertEquals("Dec 10 2018" + ", " + distanceKm + " Km, " + duration + ".000, long run", readRunString);
     }
     
     @Test

@@ -4,23 +4,22 @@ package main.domain;
 /**
  * CategoryAttribute is an object representing attributes belonging to a specific user generated category * 
  */
-public class CategoryAttribute {
-    
+public class CategoryAttribute {    
     private int id;
     private String attribute;
-    private int categoryID;
+    private int categoryId;
     
     /**
      * Constructor of initiating a CategoryAttribute object
      *
      * @param   id   As integer functioning as a unique identifier for the attribute. 
      * @param   attribute   A string representing the attribute, or its value, as defined by the user
-     * @param   categoryID   The unique identifier for the category the attribute belongs to
+     * @param   categoryId   The unique identifier for the category the attribute belongs to
      */ 
-    public CategoryAttribute(int id, String attribute, int categoryID) {
+    public CategoryAttribute(int id, String attribute, int categoryId) {
         this.id = id;
         this.attribute = attribute;
-        this.categoryID = categoryID;
+        this.categoryId = categoryId;
     }
 
     public void setId(int id) {
@@ -31,8 +30,8 @@ public class CategoryAttribute {
         this.attribute = attribute;
     }
 
-    public void setCategoryID(int categoryID) {
-        this.categoryID = categoryID;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
     
     public int getId() {
@@ -43,8 +42,7 @@ public class CategoryAttribute {
         return attribute;
     }
 
-    public int getCategoryID() {
-        return categoryID;
+    public int getCategoryId() {
+        return categoryId;
     }
-    
 }

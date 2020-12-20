@@ -8,33 +8,33 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import main.domain.Category;
 import main.domain.CategoryAttribute;
 
 /**
- * CategoryAttributeDAO is a data access object for handling database operations relating to the CategoryAttribute class
+ * CategoryAttributeDAO is a data access object for handling database operations relating to the CategoryAttribute class.
  * 
  * @see     main.domain.CategoryAttribute#CategoryAttribute(int, java.lang.String, int) 
  */
-public class CategoryAttributeDAO {
-    
+public class CategoryAttributeDAO implements DAO<CategoryAttribute, Integer> {    
     private String tableName;
     private String categoryTableName;
     
     /**
-     * Constructor of initiating a CategoryAttributeDAO
+     * Constructor initiating a CategoryAttributeDAO.
      *
      * @param   tableName   The table name that the CategoryDAO should use. 
      * @param   categoryTableName   The table name to be used when referring to the database table corresponding to the Category class
      * 
      * @see     main.domain.Category#Category(java.lang.Integer, java.lang.String, java.lang.String) 
      */ 
-    public CategoryAttributeDAO(String tableName, String categoryTableName) {
+    public CategoryAttributeDAO(String tableName, String categoryTableName) {        
         this.tableName = tableName;
         this.categoryTableName = categoryTableName;
     }
     
     /**
-     * Makes sure there is a database table corresponding to the CategoryAttribute class
+     * Makes sure there is a database table corresponding to the CategoryAttribute class.
      *
      * @see     main.domain.CategoryAttribute#CategoryAttribute(int, java.lang.String, int) 
      * 
@@ -42,8 +42,7 @@ public class CategoryAttributeDAO {
      */ 
     public boolean ensureTableExists() {
         
-        try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
-            
+        try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {            
             String sqlStatement = "CREATE TABLE IF NOT EXISTS " + tableName + " (id INTEGER AUTO_INCREMENT PRIMARY KEY, attribute TEXT, category_id INTEGER, FOREIGN KEY (category_id) REFERENCES " + categoryTableName + "(id));";  
             databaseConnection.prepareStatement(sqlStatement).executeUpdate();
             
@@ -52,13 +51,12 @@ public class CategoryAttributeDAO {
             return true;
             
         } catch (Exception e) {
-            System.out.println("AttributeDAO ERROR: table exists");
             return false;
         }
     }
     
     /**
-     * Resets the database table corresponding to the CategoryAttribute class, so that the table exists but no longer contains any data
+     * Resets the database table corresponding to the CategoryAttribute class, so that the table exists but no longer contains any data.
      *  
      * @see     main.domain.CategoryAttribute#CategoryAttribute(int, java.lang.String, int) 
      * 
@@ -75,52 +73,55 @@ public class CategoryAttributeDAO {
             return ensureTableExists();
             
         } catch (Exception e) {
-            System.out.println("AttributeDAO ERROR: Could not reset table");
             return false;
         }
     }
     
     /**
-     * Inserts a new row, corresponding to a CategoryAttribute object, into the database table corresponding to the CategoryAttribute class
+     * Inserts a new row into the database table corresponding to the CategoryAttribute class.
      *
      * @param   attribute   A CategoryAttribute object containing the data to be inserted into the database table
      *
      * @see     main.domain.CategoryAttribute#CategoryAttribute(int, java.lang.String, int) 
+     * 
+     * @return  The generated primary key of the inserted row
      */
-    public void create(CategoryAttribute attribute) {
+    public Integer create(CategoryAttribute attribute) {        
+        Integer id = -1;
         
-        try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
-            
+        try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {            
             String sqlStatement = "INSERT INTO " + tableName + " (attribute, category_id) VALUES (?, ?)";
             PreparedStatement statement = databaseConnection.prepareStatement(sqlStatement);
             statement.setString(1, attribute.getAttribute());
-            statement.setInt(2, attribute.getCategoryID());
+            statement.setInt(2, attribute.getCategoryId());
             statement.executeUpdate();
             
-            statement.close();            
-            databaseConnection.close(); 
+            ResultSet resultSet = statement.getGeneratedKeys();
+            if (resultSet.next()) {
+                id = resultSet.getInt(1);
+            }
+            
+            closeResources(resultSet, statement, databaseConnection); 
             
         } catch (Exception e) {
-            System.out.println("AttributeDAO ERROR: create, " + attribute.toString() + ", " + e);
-        }        
-                
+            
+        }                
+        return id;
     }
     
     /**
-     * Reads a row, corresponding to a CategoryAttribute object, from the database table corresponding to the CategoryAttrbiute class
+     * Reads a row, corresponding to a CategoryAttribute object, from the database table corresponding to the CategoryAttrbiute class.
      *
-     * @param   id   An integer corresponding to the primary key of the row to be read
+     * @param   id   An Integer corresponding to the primary key of the row to be read
      *
      * @see     main.domain.CategoryAttribute#CategoryAttribute(int, java.lang.String, int) 
      *
      * @return  A CategoryAttribute object
      */    
-    public CategoryAttribute read(int id) {
-        
+    public CategoryAttribute read(Integer id) {        
         CategoryAttribute attribute = new CategoryAttribute(id, "", -1);
         
-        try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {
-            
+        try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {            
             String sqlStatement = "SELECT * FROM " + tableName + " WHERE id = ?";
             PreparedStatement statement = databaseConnection.prepareStatement(sqlStatement);
             statement.setInt(1, id);
@@ -128,34 +129,30 @@ public class CategoryAttributeDAO {
 
             while (resultSet.next()) {
                 attribute.setAttribute(resultSet.getString("attribute"));
-                attribute.setCategoryID(resultSet.getInt("category_id"));
+                attribute.setCategoryId(resultSet.getInt("category_id"));
             }
             
-            resultSet.close();
-            statement.close();
-            databaseConnection.close();
+            closeResources(resultSet, statement, databaseConnection);
 
         } catch (Exception e) {
-            System.out.println("CatDAO ERROR: read, id: " + id);
-        }    
-        
+            
+        }            
         return attribute;
     }
     
     /**
-     * Lists all the data in the database table corresponding to the CategoryAttribute class, in the form of CategoryAttribute objects
+     * Lists all the data in the database table corresponding to the CategoryAttribute class, in the form of CategoryAttribute objects.
      *
-     * @param   categoryID   An integer corresponding a foreign key, referring to a row int the database table corresponding to the Category class, found in the rows, in the database table corresponding to the CategoryAttribute class, to be included in the list
+     * @param   categoryId   An Integer corresponding a foreign key, referring to a row int the database table corresponding to the Category class, found in the rows, in the database table corresponding to the CategoryAttribute class, to be included in the list
      * 
      * @see     main.domain.CategoryAttribute#CategoryAttribute(int, java.lang.String, int) 
      *
      * @return  A list of CategoryAttribute objects
      */
-    public List<CategoryAttribute> list(int categoryID) {        
+    public List<CategoryAttribute> list(Integer categoryId) {        
         List<CategoryAttribute> attributes = new ArrayList<>();       
         
-        try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {      
-            
+        try (Connection databaseConnection = DriverManager.getConnection("jdbc:h2:./runView", "sa", "")) {            
             String sqlStatement = "SELECT * FROM "  + tableName;
             PreparedStatement statement = databaseConnection.prepareStatement(sqlStatement);
             ResultSet resultSet = statement.executeQuery();
@@ -166,7 +163,7 @@ public class CategoryAttributeDAO {
                 Integer category = resultSet.getInt("category_id");
                 
                 CategoryAttribute newAttribute = new CategoryAttribute(id, attribute, category);
-                if (newAttribute.getCategoryID() == categoryID)  {
+                if (newAttribute.getCategoryId() == categoryId)  {
                     attributes.add(newAttribute);
                 }
             } 
@@ -174,7 +171,7 @@ public class CategoryAttributeDAO {
             closeResources(resultSet, statement, databaseConnection);
             
         } catch (Exception e) {
-            System.out.println("AttributeDAO ERROR: list" + e);
+            
         }        
         return attributes;
     }
@@ -186,7 +183,7 @@ public class CategoryAttributeDAO {
      * @param   preparedStatement    The PreparedStatement to be closed
      * @param   connection    The Connection to be closed
      */ 
-    private static void closeResources(ResultSet resultSet, PreparedStatement statement, Connection connection) throws Exception {
+    private static void closeResources(ResultSet resultSet, PreparedStatement statement, Connection connection) throws Exception {        
         resultSet.close();
         statement.close();
         connection.close();
