@@ -49,7 +49,7 @@ Thus the application and JUnit tests use the same application logic and the same
         this.ensureDataBaseExists();
     }
     
-The lowermost constructor could also be used in the future to give paralell users paralell database tables without risk of accessing each others data.
+The lowermost constructor could also be used in the future to give paralell users paralell database tables without risk of accessing each others data. Since the application is aimed at single users, this feature is however not yet supported nor a priority. The potential of the implementation is though worth mentioning.
 
 ## Main user functionality
 
