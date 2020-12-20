@@ -1,5 +1,5 @@
 
-package main.ui.map.mapPainters;
+package main.ui.map.painters;
 
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;

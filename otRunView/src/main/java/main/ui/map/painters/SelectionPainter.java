@@ -1,7 +1,7 @@
 
-package main.ui.map.mapPainters;
+package main.ui.map.painters;
 
-import main.ui.map.mapPainters.SelectionAdapter;
+import main.ui.map.painters.SelectionAdapter;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;

@@ -1,5 +1,5 @@
 
-package main.ui.map.mapPainters;
+package main.ui.map.painters;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
