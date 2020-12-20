@@ -17,6 +17,10 @@ This is a course project, for the course in Software Engineering (fi: "Ohjelmist
 
 ## Releases
 
+**Final releasse ("loppupalautus")**
+
+[Final release (loppupalautus)](https://github.com/jrhel/ot-harjoitustyo2020/releases/tag/loppupalautus)
+
 **Week 6**
 
 [Week 6 (latest release)](https://github.com/jrhel/ot-harjoitustyo2020/releases/tag/week_6)
