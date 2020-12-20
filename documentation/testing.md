@@ -1,6 +1,6 @@
 # Testing document
 
-The application includes automated tests for both the application logic and the DAO:s.
+The application includes automated tests for both the application logic and the DAO:s. The application has also been tested manually on a system level.
 
 ## JUnit & integration testing
 
@@ -30,3 +30,12 @@ Thus the application and JUnit tests use the same application logic and the same
         this.runCatDao = new RunCategoryDAO(runCategoryTableName, runTableName, categoryTableName);
         this.ensureDataBaseExists();
     }
+
+## System testing
+
+All functionality listed in the [reqiremets specification](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Requirements%20specification.md) has been tested, and established to be working as intended. User choices and inputs which have shown to be impossible for the application logic to handle have been prevented. The application will in such cases inform the user of the problem preventing their intended action.
+
+# Known problems and undesired functionality in certain situations
+
+- Currently, the application can not handle an incorrect date being submitted by the user.
+- Choosing to edit a run and then closing the form for entering new data regarding the run, without saving, will delete the run.
