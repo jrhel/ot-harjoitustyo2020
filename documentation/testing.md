@@ -8,6 +8,8 @@ The application includes automated tests for both the application logic and the 
 
 The application logic, i.e. classes contained by the package [_main.domain_](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/otRunView/src/main/java/main/domain), is tested by corresponding classes in the test package [_domain_](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/otRunView/src/test/java/domain).
 
+The _Category_ class is exempted form JUnit & integration testing since it only contains getter & setter methods.
+
 ### DAO:s
 
 The DAO:s, i.e. classes contained by the package [_main.dao_](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/otRunView/src/main/java/main/dao), are tested by corresponding classes in the test package [_dao_](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/otRunView/src/test/java/dao).
