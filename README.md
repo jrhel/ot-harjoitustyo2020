@@ -13,6 +13,8 @@ This is a course project, for the course in Software Engineering (fi: "Ohjelmist
 
 [Architecture description](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/Architecture%20description.md)
 
+[.gpx files for testing the application](https://github.com/jrhel/ot-harjoitustyo2020/tree/master/gpx_files_for_testing)
+
 [Testing document](https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/testing.md)
 
 ## Releases
