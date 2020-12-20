@@ -61,4 +61,4 @@ Below, how the application implements some main user functionality in the form o
 
 ### Creation of a new run:
 
-<img src=" ">
+<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/SD_createRun.jpg">
