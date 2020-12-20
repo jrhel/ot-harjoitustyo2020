@@ -8,17 +8,13 @@ The application implements a three level design, in the form that the package _m
 
 ## User interface
 
-The user interface contains four pages (so far).
-- A main page giving an overview of all data saved in the application, and user options for further functionality of the application,
-- A page for opening a more detailed overview of specif runs saved in the application,
-- A page for adding new runs to the application,
-- A page for adding new user categories to the application.
+The main user interface consists of three pages (see below).
+- The "front page", showing the user a list and a map of all their runs, as well as a list of categories they have saved to the application. The front page also contains some buttons for further interaction, 
+- The "run overview", showing the user some detailed metrics and information regarding their run, a list of any categories they have tagged it with, a map of their run (if they have provided a .gpx file for it), and buttons for editing their run or deleting it from the application, 
+- The "category overview", showing an overview of all runs matching selected categories.
 
-Below is an illustration of the user interface (mostly implemented):
-
-<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/draft_UI.jpg">
-
-A page for seeing an overview of all runs that match selected user-created categories is also in the works.
+Additionally, the user interface can display two forms for user input, popups with messages to the user in specific cases.
+All pages and popups use their own Stage objects, which are initated, closed, or updated depending on the requirements of the situation. These are contained in the package _mai.ui.stage_. 
 
 ## Application logic
 
