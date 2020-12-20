@@ -20,7 +20,7 @@ The "front page", showing the user a list and a map of all their runs, as well a
 The "run overview", showing the user some detailed metrics and information regarding their run, a list of any categories they have tagged it with, a map of their run (if they have provided a .gpx file for it), and buttons for editing their run or deleting it from the application:
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/runPage.jpg">
 
-The "category overview", :
+The "category overview", showing an overview of all runs matching selected categories:
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/overviewPage.jpg">
 
 ## Functionality
@@ -43,35 +43,11 @@ The run overview allows the user to:
 The category overview allows the user to:
 -   see some aggregated data regarding their shosen categories, including how many runs match the overview includes, their combined distance and duration, and the avg. duration adn avg. speed and avg. cadence of the included runs,
 -   some detailed metrics and information regarding their best* personal run, including the date and distance and duration of that run, the avg. speed and avg. cadence during that run, and all the categories that it has been tagged with,
+-   see a graph of the durations of the included runs over time,
+-   see a map of all included runs (for which a .gpx file has been provided to the appication),
+-   see a list of all the included runs, allowing to open an overview of any one of them by clicking on it.
 
 * Pest personal run is measured by fastest avg speed.
-
-
-The user will be able to:
--	Create categories for their runs (e.g. “Pavement”, “Trail”, “Track”, “5K”, “10K”, “tempo”. “easy” etc.),    **[done]**
--	Create subcategories to higher categories, e.g. “Surface” = {“Pavement”, “Trail”, “Track”}, “Distance” = {“5K”, “10K”},     **[done]**
--   Add attributes to their created categories, so as to enable the user to add any additional information regarding their categories that they would feel inclined to have,    **[done]**
--	Save runs by manually inputting data about them, including: **[done]**
-    - Duration,
-    - Moment in time (e.g. date),
-    - Distance,
-    - .gpx file,
-    - Avg. cadence,
-    - Avg. speed,
-    - Applicable user-created categories.
--	Edit data in saved runs, **[done]**
--   Delete runs, **[done]**
--   See an overview of any run saved in the application and the data added to that run, **[done]**
--	Browse runs by user-created categories and open an overview of any run matching selected categories, **[done]**
--   See an overview of all runs that match selected user-created categories including: **[done]**
-    - Number of runs matching selected categories,
-    - Total distance of runs matching selected categories (for runs for which user has added .gpx files),
-    - Avg. distance of runs matching selected categories (for runs for which user has added .gpx files),
-    - Total duration of runs matching selected categories,
-    - Avg. duration of runs matching selected categories,
-    - Graph of duration/avg. speed per moments in time,
-    - Personal best (i.e. fastest run/shortest duration),
-    - Map of included routes (provided user has added .gpx files).
 
 ## Technological requirements on the application
 
@@ -83,8 +59,9 @@ The user will be able to:
 
 -   Ability to browse and see an overview of runs on a time axis,
 -   Ability to see graph of distance per moment in time in "overview of all runs that match selected user-created categories",
--   Ability to see graph of avg. cadence per run matching selected categories (easily implemented but assumed to be of lesser interest to user, thus beeing put low on the "to-do-list"),
+-   Ability to see graph of avg. cadence per run matching selected categories,
+-   Ability to see graph of avg. speed per run, projected on a graph of distance per run, matching selected categories,
 -   Ability to add and see altitude data for a run (tot. ascent, tot. descent, and altitude graph of run),
--   Ability to add and see more complete cadence data for a run (graph of cadence during run, e.g. 1min avg.),
+-   Ability to add and see more complete cadence data for a run (graph of cadence during run, e.g. 1 min avg.),
 -   Inclusion of heart rate data,
 -   Make app more general and dynamic no longer focusing on showing data specifically to runs, instead allowing users to use the app to stora data about any kind of activity, track it, and get overviews of relevant data to their activities. Making the app more general could be facilitated by the app logic already depending on user-created categories, (i.e. Activities could be user-created categories and activity-specific categories  (e.g. "Distance") would become subcategories, with their own subcategories etc., to the activity). However, different data can be relevant to different activities, and thus a useful a pivot to activity in general might require tailor made user interfaces for each activity  thus significantly complicating the user interface, the application logic, and the application design in general. Because time and location data often is interesting for runners, activities where such data is also valued coudl be quite easily incorporated, e.g. cycling and outdoor swimming. Then, the application would not support genearl activities though but again be activity specific, evanthough the range of supported activities would have increased.
