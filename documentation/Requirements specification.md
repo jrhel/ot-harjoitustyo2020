@@ -14,11 +14,19 @@ The application is primarily aimed at single users, for whom the app offers a wa
 
 The main user interface consists of three pages (see below).
 
-The "front page":
+The "front page", showing the user  a list and a map of all their runs, as well as a list of categories they have saved to the application. The front page also contains some buttons for further interaction:
 
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/frontPage.jpg">
 
 ## Functionality
+
+The front page allows the user to:
+-   open a form for entering data for a new run and saving it in the application,
+-   browse all runs they have saved to the application (sorted by date), and open an overview of any run,
+-   see a map of all their runs, for which they have provided a .gpx file,
+-   open a form for entering information pertaining to a new category and saving it in the application, 
+-   browse all categories they have saved to the application, and open an overview of any single category or combination of categories,
+-   reset the application, so that it contains no data.
 
 The user will be able to:
 -	Create categories for their runs (e.g. “Pavement”, “Trail”, “Track”, “5K”, “10K”, “tempo”. “easy” etc.),    **[done]**
