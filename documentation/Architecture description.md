@@ -22,7 +22,7 @@ A page for seeing an overview of all runs that match selected user-created categ
 
 ## Application logic
 
-The main responsibility for the application logic lies with the Logic class, which is supported by the classes Run, Category, and CategoryAttribute. The Logic class controls the DAO classess and serves the UI, as illlustrated below:
+The main responsibility for the application logic lies with the _Logic_ class, which is supported by the classes _Run_, _Category_, and _CategoryAttribute_, in addition to the class _AggregatedRunData_. The _Logic_ class controls the DAO classess and serves the UI, as illlustrated below:
 
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/package-class%20diagram.jpg">
 
