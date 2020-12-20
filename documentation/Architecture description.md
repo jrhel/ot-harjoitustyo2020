@@ -18,11 +18,11 @@ The main user interface consists of three pages (see below).
 Additionally, the user interface can display two forms for user input, popups with messages to the user in specific cases.
 All pages and popups use their own Stage objects, which are initated, closed, or updated depending on the requirements of the situation. These are contained in the package _main.ui.stage_. 
 
-The map functionality of the user interface is contained in the package _main.ui.map_. Within this package, the class _RunMap_ functions as the packages internal logic. _RunMap_ takes the application logic and a list of .gpx file paths as parameters, and creates a JXMapViewer object which gets wrapped in a SwingNode object which gets wrapped in StackPane object to be used by the main GUI implemented with JavaFX.
+The map functionality of the user interface is contained in the package _main.ui.map_. Within this package, the class _RunMap_ functions as the packages internal logic. _RunMap_ takes the application logic and a list of .gpx file paths as parameters, and creates a [JXMapViewer](https://github.com/msteiger/jxmapviewer2) object which gets wrapped in a SwingNode object which gets wrapped in StackPane object to be usable for the main GUI, implemented with JavaFX. The package _main.ui.map_ also contains a package _main.ui.map.painters_ which contains functionality that [JXMapViewer](https://github.com/msteiger/jxmapviewer2) requires to work. The contents of the package _main.ui.map.painters_, i.e. the classes RoutePainter, SelectionPainter, and SelectionAdapter, IS NOT ORIGNIAL CODE TO THIS PROJECT. CREDIT FOR THOSE CLASSES BELONGS TO THE CREATORS OF [JXMapViewer](https://github.com/msteiger/jxmapviewer2).
 
 ## Application logic
 
-The main responsibility for the application logic lies with the _Logic_ class, which is supported by the classes _Run_, _Category_, and _CategoryAttribute_, in addition to the class _AggregatedRunData_. The _Logic_ class controls the DAO classess and serves the UI, as illlustrated below:
+The main responsibility for the application logic lies with the _Logic_ class, which is supported by the classes _Run_, _Category_, and _CategoryAttribute_, in addition to the class _AggregatedRunData_. The _Logic_ class controls the DAO classess and serves the UI. Below is a full class diagram for the application:
 
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/package_ClassDiagram.jpg">
 
