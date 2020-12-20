@@ -51,9 +51,9 @@ public class Logic {
     public void saveCategory(String category, List<String> attributes, String parent) {        
         Category newCategory = new Category(category);
         newCategory.setParentName(parent);
-        int categoryPK = catDao.create(newCategory);
+        int categoryId = catDao.create(newCategory);
         for (String attribute: attributes) {
-            CategoryAttribute newAttribute = new CategoryAttribute(-1, attribute, categoryPK);
+            CategoryAttribute newAttribute = new CategoryAttribute(-1, attribute, categoryId);
             catAttributeDao.create(newAttribute);
         }
         
