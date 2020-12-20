@@ -28,8 +28,7 @@ The main responsibility for the application logic lies with the _Logic_ class, w
 
 ## Persistent storage of application data
 
-The classes _CategoryDAO_, _CategoryAttributeDAO_, _RunDAO_, and _RunCategoryDAO_ in th apackage _main.dao_ are responsible for all database operations.
-The application uses the H2 database engine, handled by these classes, and observes the [DAO design pattern](https://en.wikipedia.org/wiki/Data_access_object).
+The classes _CategoryDAO_, _CategoryAttributeDAO_, _RunDAO_, and _RunCategoryDAO_ in the package _main.dao_ implement the DAO interface and are responsible for all database operations. The application uses the H2 database engine, handled by these classes, and observes the [DAO design pattern](https://en.wikipedia.org/wiki/Data_access_object).
 
 In order for JUnit tests not to interfere with the users data, 1) the applications DAO classes implement a dynamic naming scheme for the database tables they use while retaining the relationship between the DAOs and thus the intactness of the database, 2) JUnit tests use the same data access objects as the application, but initialize the application logic with a different constructor passing on different names for the DAOs to use for their database tables.
 Thus the application and JUnit tests use the same application logic and the same database, but parallel database tables instead of the same ones. The uppermost constructor is the constructor used by the application, and the lowermost constructer is used by JUnit tests:
