@@ -207,8 +207,8 @@ public class MainStage {
         display.getChildren().add(getLeftDispaly(logic));
         display.getChildren().add(getMap(logic));
         display.getChildren().add(getRightDisplay(logic));   
-        display.minHeight(864);
-        display.minWidth(1536);
+        display.minHeight(756);
+        display.minWidth(1344);
         
         Scene scene = new Scene(display);
         mainStage.setScene(scene); 
