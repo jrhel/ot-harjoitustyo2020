@@ -20,7 +20,7 @@ The "front page", showing the user a list and a map of all their runs, as well a
 
 the "run overview", showing the user some detailed metrics and information regarding their run, a list of any categories they have tagged it with, a map of their run (if they have provided a .gpx file for it), and buttons for editing their run or deleting it from the application:
 
-<img src="">
+<img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/runPage.jpg">
 
 ## Functionality
 
