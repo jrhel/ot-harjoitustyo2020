@@ -2,7 +2,7 @@
 
 ## Structure
 
-The application implements a three level design, in the form that the package _main.ui_ contains the user interface which initializes the application logic, contained in the package _main.domain_. The application logic, in turn, initializes data access objects which handle the persistent storage of the applications data and are contained in the package _main.dao_. The UI is initialized by the class _main.Main_.The entore package structure is illustrated below:
+The application implements a three level design, in the form that the package _main.ui_ contains the user interface which initializes the application logic, contained in the package _main.domain_. The application logic, in turn, initializes data access objects which handle the persistent storage of the applications data and are contained in the package _main.dao_. The UI is initialized by the class _main.Main_. The entore package structure is illustrated below:
 
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/package%20structure.jpg">
 
