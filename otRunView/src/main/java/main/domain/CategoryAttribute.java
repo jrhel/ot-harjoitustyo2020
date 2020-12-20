@@ -2,7 +2,7 @@
 package main.domain;
 
 /**
- * CategoryAttribute is an object representing attributes belonging to a specific user generated category * 
+ * CategoryAttribute is an object representing attributes belonging to a specific user generated category.
  */
 public class CategoryAttribute {    
     private int id;
@@ -10,7 +10,7 @@ public class CategoryAttribute {
     private int categoryId;
     
     /**
-     * Constructor of initiating a CategoryAttribute object
+     * Constructor of initiating a CategoryAttribute object.
      *
      * @param   id   As integer functioning as a unique identifier for the attribute. 
      * @param   attribute   A string representing the attribute, or its value, as defined by the user

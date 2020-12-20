@@ -5,7 +5,11 @@
  */
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
 import main.dao.RunCategoryDAO;
+import main.domain.Category;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
@@ -27,5 +31,4 @@ public class RunCategoryDAOTest {
         RunCategoryDAO runCatDao = new RunCategoryDAO("TestRunCategory", "TestRun", "TestCategory");
         assertTrue(runCatDao.resetTable());
     }
-    
 }
