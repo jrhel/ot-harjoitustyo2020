@@ -35,7 +35,7 @@ Thus the application and JUnit tests use the same application logic and the same
 
 <img src="https://github.com/jrhel/ot-harjoitustyo2020/blob/master/documentation/pictures/testprosent.jpg">
 
-Test for application logic and DAO:s cover 54% of lines, and 25% of forks.
+Test for application logic and DAO:s cover 54% of lines, and 32% of forks.
 
 ## System testing
 
